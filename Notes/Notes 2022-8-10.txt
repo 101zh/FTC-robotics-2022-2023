@@ -1,0 +1,44 @@
+Prototype Agenda:
+Meet everyone "Who is everyone?"
+    Hunter Zhuang - Engineering Notebook
+    Max Fan - Driver/Builder
+    Jean Li - Research/Organizations/Project Manager
+    Nicholas Chen - CAD Designer/Coder
+    Logan Kwan - Builder
+    Brian Zhang - Main Coder 
+
+
+
+How FTC works:
+    FTC rules:
+
+
+    Engineering Notebook
+        Meeting Log of everything we do
+
+    Engineering portfolio
+        Judged by judges
+        summary of each meeting
+        detailed drawings/pictures
+        proposed ideas
+        Goals
+        Team info
+            Bios
+        Game Strategies?
+        
+    Robot setup(How to run code)
+    Where/How coders are coding
+    Go over different roles
+
+
+
+Github?
+Recurring meetings(When are we having meetings)?
+    Everyone's Open Times
+        Sunday 8:30AM-10:30AM STC
+        Saturday 12:30PM-2:30PM
+        Wednesdays early release meetings
+
+
+
+(add more here)
