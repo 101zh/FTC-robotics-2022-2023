@@ -1,45 +1,45 @@
 Notes:
 
-TODO:
-    Merch - Natalie?
-    Fundraising - 
-    Find Meeting Times - Everyone
+    TODO:
+        Merch - Natalie?
+        Fundraising - 
+        Find Meeting Times - Everyone
 
-Meet everyone "Who is everyone?"
-    Hunter Zhuang - Engineering Notebook/Notetaker/Logistics
-    Max Fan - Driver/Main Builder
-    Jean Li - Research/Organizations/Project Manager/Drive Team
-    Nicholas Chen - CAD Designer/Coder/Drive Team
-    Logan Kwan - Builder
-    Brian Zhang - Contraptionist/Secondary Builder
-    Jonathan Xie - Moral Support/Builder
-    Natalie Cui - TBD
+    Meet everyone "Who is everyone?"
+        Hunter Zhuang - Engineering Notebook/Notetaker/Logistics
+        Max Fan - Driver/Main Builder
+        Jean Li - Research/Organizations/Project Manager/Drive Team
+        Nicholas Chen - CAD Designer/Coder/Drive Team
+        Logan Kwan - Builder
+        Brian Zhang - Contraptionist/Secondary Builder
+        Jonathan Xie - Moral Support/Builder
+        Natalie Cui - TBD
 
-How FTC works:
+    How FTC works:
 
-    Engineering Notebook
-        Meeting Log of everything we do
+        Engineering Notebook
+            Meeting Log of everything we do
 
-    Engineering portfolio
-        Judged by judges
-        summary of each meeting
-        detailed drawings/pictures
-        proposed ideas
-        Goals
-        Team info
-            Bios
-        Game Strategies?
-        
-    Where/How coders are coding
+        Engineering portfolio
+            Judged by judges
+            summary of each meeting
+            detailed drawings/pictures
+            proposed ideas
+            Goals
+            Team info
+                Bios
+            Game Strategies?
+            
+        Where/How coders are coding
 
-Github?
-    Hunter is forcing coders to use Github
+    Github?
+        Hunter is forcing coders to use Github
 
-Recurring meetings(When are we having meetings)?
-    Everyone's Open Times
-        Sunday 8:30AM-10:30AM STC
-        Saturday 12:30PM-2:30PM STC
-        Wednesdays early release meetings STC
+    Recurring meetings(When are we having meetings)?
+        Everyone's Open Times
+            Sunday 8:30AM-10:30AM STC
+            Saturday 12:30PM-2:30PM STC
+            Wednesdays early release meetings STC
 
 
 
