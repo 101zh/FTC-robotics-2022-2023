@@ -1,17 +1,21 @@
-Prototype Agenda:
+Notes:
+
+TODO:
+    Merch - Natalie?
+    Fundraising - 
+    Find Meeting Times - Everyone
+
 Meet everyone "Who is everyone?"
-    Hunter Zhuang - Engineering Notebook
-    Max Fan - Driver/Builder
-    Jean Li - Research/Organizations/Project Manager
-    Nicholas Chen - CAD Designer/Coder
+    Hunter Zhuang - Engineering Notebook/Notetaker/Logistics
+    Max Fan - Driver/Main Builder
+    Jean Li - Research/Organizations/Project Manager/Drive Team
+    Nicholas Chen - CAD Designer/Coder/Drive Team
     Logan Kwan - Builder
-    Brian Zhang - Main Coder 
-
-
+    Brian Zhang - Contraptionist/Secondary Builder
+    Jonathan Xie - Moral Support/Builder
+    Natalie Cui - TBD
 
 How FTC works:
-    FTC rules:
-
 
     Engineering Notebook
         Meeting Log of everything we do
@@ -26,19 +30,16 @@ How FTC works:
             Bios
         Game Strategies?
         
-    Robot setup(How to run code)
     Where/How coders are coding
-    Go over different roles
-
-
 
 Github?
+    Hunter is forcing coders to use Github
+
 Recurring meetings(When are we having meetings)?
     Everyone's Open Times
         Sunday 8:30AM-10:30AM STC
-        Saturday 12:30PM-2:30PM
-        Wednesdays early release meetings
+        Saturday 12:30PM-2:30PM STC
+        Wednesdays early release meetings STC
 
 
 
-(add more here)
