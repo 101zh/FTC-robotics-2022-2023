@@ -4,6 +4,8 @@ Notes:
         Merch - Natalie Cui
         Fundraising - 
         Find Meeting Times - Everyone
+        Outreach?
+        Sponsors?
 
     Meet everyone "Who is everyone?"
         Hunter Zhuang - Engineering Notebook/Notetaker/Logistics
@@ -29,8 +31,6 @@ Notes:
             Team info
                 Bios
             Game Strategies?
-            
-        Where/How coders are coding
 
     Github?
         Hunter is forcing coders to use Github
@@ -41,5 +41,10 @@ Notes:
             Saturday 12:30PM-2:30PM STC
             Wednesdays early release meetings STC
 
-
+    Team Building Event:
+        1. Mope around the mall 
+        2. Lucky Strike
+        3. Dave and Busters
+        4. Escape Room
+        5. Play online video games?
 
