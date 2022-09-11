@@ -1,23 +1,65 @@
 Agenda/Notes:
     
+    TODO:
+        Sponsorships/Fundraising - Jonathan/Natalie/Nicholas
+            Writes email and Flyer - Natalie
+            Sends email - Jonathan
+            Research on Sponsors - Nicholas
+        Outreach - Natalie/Brian/Logan
+        People who have ideas design in CAD and then propose it
+        Expo Maekwerers - Nicholas
+        Team Building - Hunter
+        Engineering Notebook - Hunter
+        Wednesday Meeting
+
     Meeting Times:
         In person
+            8:30-10:30AM on sundays
+
         Online meetings
+            8:00PM on wednesdays
+
 
     Confirmation of Roles:
+        Hunter Zhuang - Engineering Notebook/Notetaker/Logistics
+        Max Fan - Driver/Main Builder
+        Jean Li - Research/Organizations/Project Manager/Drive Team
+        Nicholas Chen - CAD Designer/Coder/Drive Team/Fundraising/Sponsors
+        Logan Kwan - Builder/Outreach
+        Brian Zhang - Contraptionist/Secondary Builder/Auxilary Coder/Outreach
+        Jonathan Xie - Moral Support/Builder/Fundraising/Sponsors
+        Natalie Cui - Project Manager/Artist/Fundraising/Sponsors/Outreach
 
     Fundraising/Sponsors?:
         Are we doing it?
+        Yes
             Who should do it?
+            Jonathan Xie
+            Natalie Cui
+
+    Team Shirts:
+        Old Logo + Sponsorships
+        Long Sleeved Shirts
+        Logo may change depending on Sponsorships
+        Will be discussed Later
 
     Outreach?:
         Are we doing it?
+        Yes, maybe
         "maybe we could get technova to show us sick stuff, maybe the team water drops (or droplets i forgor) as well" - Nicholas
+        Brian
+        Logan
+        Natalie
 
     Team Building Event:
+        Escape Room
+        Hunter
         When?
+            Sunday afternoon - TBD
 
     Decide Robot Designs?:
-
-
-
+        There is a raging argument/discussion that I literally can't summarize
+        4-bar lift
+        1 arm that can go 180?
+        ferris wheel?
+        Everyone researches their own idea and then proposes it online.
