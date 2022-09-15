@@ -1,0 +1,49 @@
+Online meeting Notes:
+
+    TODO:
+        Sponsorships/Fundraising - Jonathan/Natalie/Nicholas
+            Writes email and Flyer - Natalie
+            Sends email - Jonathan
+            Research on Sponsors - Nicholas
+        Outreach - Natalie/Brian/Logan
+        Expo Maekwerers - Nicholas
+        Team Building - Hunter
+        Engineering Notebook - Hunter
+        Sunday Meeting
+
+    Updates:
+        Natalie still needs Nicholas to send her the Sponsorship thing
+        Hunter is still finding an Escape room for team building event
+
+    Robot Designs:
+        Nicholas's Design:
+            https://cad.onshape.com/documents/ba2e99ed70edc3a5ce275e83/w/d534625318e5135ae211bd87/e/5a5a415819c2dffc61946c57?renderMode=0&uiState=61e7a3e5890285620855a816
+            Linear slide
+            so it can reach further
+            claw has 1 stationary finger and 1 finger that moves
+            wheels act as weight
+
+        Max's Design:
+            Drive train
+            linear slides on all four corners
+            something that connects in the middle
+            arm can move 180 and its hand swings freely(like Nicholas's design)
+            it can pick up cone
+            maybe camera and the robot can self adjust
+            Feedback:
+
+        Discussion:
+            Max's design is hard to imagine for Natalie
+            Nicholas's design looks good
+
+
+    Design Ideas:
+        an extending arm
+        Turning the body of the robot like a crane
+            (instead of having it go 180)
+        X-drive(mecanum wheels)
+
+
+
+
+
