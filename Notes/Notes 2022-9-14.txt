@@ -17,7 +17,7 @@ Online meeting Notes:
 
     Robot Designs:
         Nicholas's Design:
-            https://cad.onshape.com/documents/ba2e99ed70edc3a5ce275e83/w/d534625318e5135ae211bd87/e/5a5a415819c2dffc61946c57?renderMode=0&uiState=61e7a3e5890285620855a816
+            https://cad.onshape.com/documents/ae3168e7c31d1556949368ea/w/198531f1e5b9c5a525a19608/e/87cbd2f2e4dc878df83f8fb6?renderMode=0&uiState=631e678db7cbd40404099caa
             Linear slide
             so it can reach further
             claw has 1 stationary finger and 1 finger that moves
