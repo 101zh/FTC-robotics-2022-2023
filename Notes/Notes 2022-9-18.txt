@@ -1,0 +1,56 @@
+Agenda/Notes:
+
+    TODO:
+        Sponsorships/Fundraising - Jonathan/Natalie/Nicholas
+            Natalie needs sponsorship Flyer
+        Outreach - Natalie/Brian/Logan
+        Expo Maekwerers - Nicholas
+        Team Building event - Hunter
+        Engineering Notebook - Hunter
+        Brian and Nicholas will be listing the parts they used for their robot design
+            Coach will order the pieces Brian and Nicholas list out
+        Wednesday Meeting 8:30PM
+
+    Updates:
+        Natalie Still needs sponsorship flier
+        Max made a robot design
+
+    Nicholas's Design(again):
+        There was little info
+        Design 2:
+            Has to turn around
+            linear slides
+        Design 1:
+            The arm can move 360
+            free hanging part which allows the cone to always be facing upright
+            2 joints 
+
+    Brian's Design:
+        Rotating arm
+        Linear slide extends the arm
+        servos act as a claw
+        Claw can rotate to keep cone upright
+        Sliders can be improved and stablized more
+
+    Decide on which designs:
+        Nicholas's Design is more practical
+        But most designs are pretty good
+        Design Components:
+            X-drive(wheels at 45 angles)
+            Free hanging claw
+            Aluminum arm?
+
+
+    Rules:
+        Cones/beacons are added into sub-station during the game
+            Human player and robot can't be in the sub-station at the same time
+            The human player can't hold more than 1 cone at once
+            beacons can only be used end game
+            beacons have to right side up
+        Circuit has to connect 1 corner to the corner diagonally across
+            any way possible (diagonally)
+        Custom Sleeves will be important because it will score a lot of points during auton
+
+
+
+
