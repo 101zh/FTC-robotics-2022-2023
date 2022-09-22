@@ -1,0 +1,35 @@
+Notes:
+
+    TODO:
+        Jean is researching T-shirt stuff
+        Nicholas is researching which companies to sponsor us
+        Natalie and Jonathan will each create a set of fliers and discuss next meeting
+        Nicholas will contact some other robotics teams for outreach
+        Expo Maekwerers - Nicholas
+        Logan will finish up his design of an x-drive
+
+    Updates:
+        Natalie has clarified Nicholas's role in sponsorships which is research(what companies?)
+        Escape room is a bit too expensive
+            Maybe we could just hang out eating pizza ¯\_(ツ)_/¯
+            maybe we could get boba
+
+    Logan's Drive Train Design:
+        octogon
+        long sides and short sides
+        C channels connecting to the short sides which may contain a motor
+        (sadly there is no adapter for motor axel and wheel axel)
+        might use 3 gears (maybe crown) to connect the wheel to the motor
+            a lot of friction
+
+    Fundraising/Sponsorships:
+        Nicholas needs to find what companies
+        Have 2 separate fliers:
+            Money info
+            Team info
+        Nicholas: NO FIXED PRICES because we want wiggle room for companies
+
+    Outreach:
+        We might want to contact other teams to see what they are doing
+
+
