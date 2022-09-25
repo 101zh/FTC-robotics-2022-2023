@@ -1,0 +1,36 @@
+Notes:
+
+    TODO:
+        Robotics Designers need to make a shopping list for parts
+        Expo Maekwerers - Nicholas
+
+    Updates:
+
+        Outreach:
+            Next Sunday - time TBD
+
+        Sponsorships:
+            Jonathan's flier:
+                needs second page
+                colors are nice
+                6.5/10
+            Nicholas's flier:
+                the brown color scheme isn't great  
+                change the amount of pages to 2-3
+                8/10
+
+    Robotic Designs:
+        The only designs contending are Brian's, Nicholas's, and Logan's
+
+        Brian’s 2nd design:
+            Might not happen
+            Viper-slide gets robot to 40inches
+            Intake:
+                The claw can move up and down the viper slide (untable)
+                Or a conveyer belt
+
+    Team Building:
+        Put off till later
+
+    They struggled to build the field and deconstructed the old robot
+        not only because they are weak, they're also "less bright"
