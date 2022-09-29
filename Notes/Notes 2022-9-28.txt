@@ -1,0 +1,31 @@
+Notes:
+
+    TODO:
+        Sponsorship team needs to finish fliers
+        Taking photos next meeting
+        Outreach time will hopefully be clarified
+        Logan needs to finish parts list/design
+
+    Updates:
+        From Sponsorships
+            Working on fliers still finish by sunday
+        From Designers
+            Logan still needs to create his parts list
+            Logan might need to alter his design
+            Brian has a problem with his 3rd design
+        Outreach
+            Time is unknown
+
+    Nicholas's newest robot design:
+        https://cad.onshape.com/documents/c8d9f353144ed8c66eb128ed/w/67440c21ca72afdb0aeff546/e/028584b2d5aecfea22b50220?renderMode=0&uiState=6335142de3979571156167bc
+        2 linear slides that are perpendicular that can extend
+        Like a crane except without the string
+        Unstable
+        The robot will lean right when driving straight because weight
+
+    What we are doing next meeting:
+        Next meeting could be us going over some of the other designs and list in importance
+        Maybe prototype pieces but pieces may not arrive
+
+
+
