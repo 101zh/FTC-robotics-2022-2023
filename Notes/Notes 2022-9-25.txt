@@ -26,7 +26,7 @@ Notes:
             Might not happen
             Viper-slide gets robot to 40inches
             Intake:
-                The claw can move up and down the viper slide (untable)
+                The claw can move up and down the viper slide (unstable)
                 Or a conveyer belt
 
     Team Building:
