@@ -4,15 +4,31 @@ Agenda:
         Send a bio and a picture into the thread Hunter made in #super-important
         Building today
         Nicholas is researching which companies to sponsor us
+        Arm design will be finished building by: 10/16/22 - Max
+        Brian's Linear slide design will be done by: 10/16/22
         DEADLINE FOR SPONSORHIP FLIERS: 10/16/22
 
 
     T-shirts?
 
 
-    Building Commence
-
-
+    Building Discussion Commence:
+    Brian's Design:
+        Claw is attached to the side of the viper slide
+        Claw will grab the cone
+        Then viper slide will go up and put it on
+        The viper slide is fixed
+    Nicholas's Design:
+        3-bars: 1 fixed to the robot, 1 that can rotate on the previous one, and 1 that rotates on the one that can also rotate
+        Claw is fixed onto the last bar
+        The claw probably can't grab the cone that was on the ground
+    Nicholas's Design 2:
+        A horizontal linear slide that slides horizontally
+        A vertical linear slide that goes up attached to the horizontal one
+        A claw attached to the vertical linear slide
+        This way it goes out and then it goes up to put the cone on the stick
+    Claw Design:
+        
 
 
 
