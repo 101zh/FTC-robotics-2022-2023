@@ -1,0 +1,23 @@
+Notes:
+
+	TODO: 
+		Jean will order hoodies 
+		Nick will code POC robot/do wire and hub management/gamepad controls
+		Logan will finish POC chassi
+
+	Updates:			
+		From robot builders
+			Finished Nick’s POC
+			Brian is almost finished with the slide itself	
+			Mounted 2-stage arm on chassi
+			Logan started his POC chassi
+
+		From coders
+			Nick finished POC code
+
+	What we are doing next meeting:
+		Reviewing robot builds
+		Reviewing wire management and mounted hubs
+		Updates from and for those who were gone
+		Hoodies update
+		
