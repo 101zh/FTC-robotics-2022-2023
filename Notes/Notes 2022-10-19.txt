@@ -1,19 +1,19 @@
-Agenda:
+Notes:
 
 	TODO:
         Edit your Bio and name into flier on canva
-        Arm design will be finished building by: 10/16/22 - Max
         Brian's Linear slide design will be done by: 10/16/22
-        DEADLINE FOR SPONSORHIP FLIERS: 10/16/22
-		Jean will order hoodies 
-		Nick will code POC robot/do wire and hub management/gamepad controls
+        DEADLINE FOR SPONSORHIP FLIERS: 10/23/22
 		Logan will finish POC chassi
 
     Updates:
 		Updates from and for those who were gone
-		Hoodies update
+			Last meeting was a lot of building
+		Hoodies update - Ordered
 
-        Reviewing robot builds
-        
+	Next meeting:
+		Reviewing robot builds
 		Reviewing wire management and mounted hubs
+		Building
+		Sending out Sponsorship fliers
 
