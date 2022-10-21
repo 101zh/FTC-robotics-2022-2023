@@ -21,6 +21,7 @@ public class POCtest2 extends LinearOpMode {
   private MyMotor elbow;
   
   String armStage;
+  boolean first;
   
   private enum ArmStatus {
     ARM_STOPPED,
@@ -30,18 +31,29 @@ public class POCtest2 extends LinearOpMode {
     ARM_UP_STEP_4,
     ARM_UP_STEP_5,
     ARM_DOWN_STEP_1,
-    ARM_DOWN_STEP_2;
+    ARM_DOWN_STEP_2,
+    DROP_CONE_STEP_1,
+    DROP_CONE_STEP_2;
   };
   private ArmStatus arm_state = ArmStatus.ARM_STOPPED;
   
+  private float set_servo_pos(float degree) {
+        float x = (degree/300);
+        return x;
+  }
   private void arm_up() {
     if (!shoulder.is_running() && !elbow.is_running()) {
-      arm_state = ArmStatus.ARM_UP_STEP_1;
+      arm_state = ArmStatus.ARM_UP_STEP_2;
     }
   }
   private void arm_up_back() {
     if (!shoulder.is_running() && !elbow.is_running()) {
       arm_state = ArmStatus.ARM_UP_STEP_5;
+    }
+  }
+  private void drop_cone() {
+    if (!shoulder.is_running() && !elbow.is_running()) {
+      arm_state = ArmStatus.DROP_CONE_STEP_1;
     }
   }
   private void arm_down_bottom() {
@@ -61,29 +73,45 @@ public class POCtest2 extends LinearOpMode {
           // do nothing
           break;
         case ARM_UP_STEP_1:
-          shoulder.set_target_pos(-25);
+          elbow.set_target_pos(20);
+          first = false;
           arm_state = ArmStatus.ARM_UP_STEP_2;
           break;
-        case ARM_UP_STEP_2:
+        case ARM_UP_STEP_2: //drop fwrd
           shoulder.set_target_pos(-200);
           elbow.set_target_pos(110);
-          raw_wrist.setPosition(.25);
           armStage = "frwd";
           arm_state = ArmStatus.ARM_UP_STEP_3;
           break;
         case ARM_UP_STEP_3:
           break;
-        case ARM_UP_STEP_4:
-          raw_wrist.setPosition(.95);
+        case ARM_UP_STEP_4: //pickup
+          raw_claw.setPosition(.25);
           shoulder.set_target_pos(-130);
           elbow.set_target_pos(210);
           arm_state = ArmStatus.ARM_STOPPED;
           break;
-        case ARM_UP_STEP_5:
-          raw_wrist.setPosition(.35);
+        case ARM_UP_STEP_5: //drop bkwd
           shoulder.set_target_pos(-230);
           elbow.set_target_pos(105);
           armStage = "bkwd";
+          arm_state = ArmStatus.ARM_STOPPED;
+          break;
+        case DROP_CONE_STEP_1:
+          if (armStage == "frwd") {
+            shoulder.set_target_pos(-180);
+            elbow.set_target_pos(90);
+          }
+          if (armStage == "bkwd") {
+            shoulder.set_target_pos(-250);
+            elbow.set_target_pos(125);
+          }
+          arm_state = ArmStatus.DROP_CONE_STEP_2;
+          break;
+        case DROP_CONE_STEP_2:
+          raw_claw.setPosition(.25);
+          raw_wrist.setPosition(-.4);
+          sleep(1000);
           arm_state = ArmStatus.ARM_STOPPED;
           break;
       }        
@@ -112,6 +140,7 @@ public class POCtest2 extends LinearOpMode {
     BackLeft = hardwareMap.get(DcMotor.class, "BackLeft");
     BackRight = hardwareMap.get(DcMotor.class, "BackRight");
     
+    first = true;
     int clawMode = 0;
     int wristMode = 0;
     int clawLoop = 0;
@@ -131,13 +160,17 @@ public class POCtest2 extends LinearOpMode {
     raw_shoulder.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     raw_elbow.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     raw_shoulder.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-    raw_wrist.setPosition(.95);
+    
+    raw_claw.setPosition(0);
     
     waitForStart();
     if (opModeIsActive()) {
       // Put run blocks here.
       //raw_wrist.setPosition(.1);
       while (opModeIsActive()) {
+        
+        float pos = set_servo_pos(elbow.get_current_degree()+shoulder.get_current_degree()+85);
+        raw_wrist.setPosition(pos);
         
         telemetry.addData("testshoulder+", shoulder.get_current_postion());
         telemetry.addData("testshoulder-", shoulder.get_target_pos());
@@ -179,7 +212,12 @@ public class POCtest2 extends LinearOpMode {
           //raw_elbow.setPower((-gamepad1.left_stick_y - gamepad1.left_stick_x)/2);
         }
         if (gamepad1.x) {
-          arm_up_top();
+          if (first = true) {
+            arm_up();
+          }
+          else {
+            arm_up_top();
+          }
         }
         if (gamepad1.y) {
           arm_down_bottom();
@@ -188,16 +226,7 @@ public class POCtest2 extends LinearOpMode {
           arm_up_back();
         }
         if (gamepad1.dpad_down) {
-          if (armStage == "frwd") {
-            shoulder.set_target_pos(-180);
-            elbow.set_target_pos(90);
-            raw_claw.setPosition(.25);
-          }
-          if (armStage == "bkwd") {
-            shoulder.set_target_pos(-250);
-            elbow.set_target_pos(125);
-            raw_claw.setPosition(.25);
-          }
+          drop_cone();
         }
         
         clawLoop += 1;
