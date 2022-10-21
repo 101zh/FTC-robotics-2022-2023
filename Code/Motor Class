@@ -26,7 +26,10 @@ public class MyMotor {
     public float get_current_postion() {
         return motor.getCurrentPosition();
     }
-    
+    public float get_current_degree() {
+        float x = -(motor.getCurrentPosition()*ratio_denum)/ratio_enum;
+        return x;
+    }
     public void goto_pos_degree(float degree) {
         float math = (degree/ratio_denum)*ratio_enum;
         
