@@ -1,21 +1,28 @@
 Agenda:
 
     TODO:
-
+        Nicholas & Max need to get together to fix presets
+        Logan will work on POC no longer urgent
+        Hunter will print out team #, Warning signs, and alliance markers
 
     Updates:
         Sending out Sponsorship fliers
-        Building
         Edit your Bio and name into flier on canva
-        Brian's Linear slide design will be done by: 10/16/22
-		Logan will finish POC chassi
-		Hoodies update - Ordered
+        Brian's Linear slide design will be done by: 10/30/22
+		- Logan will finish POC chassis: 10/30/22
 
     Reviewing robot builds
-
-    Reviewing wire management and mounted hubs
+        Viper slide design
 
     Building
+        Wire and control hub management
+        Working on newer borders for field
+        Cone guider
+        Printed by next meeting
+            Team # plate
+            Warning signs
+            Alliance colors
+        Logan works on chassis POC(x-drive)
 
 
 
