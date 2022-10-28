@@ -16,11 +16,13 @@ public class MyMotor {
     private float ratio_denum = 0;
     private float tgt_pos;
     private boolean running = false;
+    private String type;
     
-    public MyMotor(DcMotor m, float r_enum, float r_denum) {
+    public MyMotor(DcMotor m, float r_enum, float r_denum, String t) {
         motor = m;
         ratio_enum = r_enum;
         ratio_denum = r_denum;
+        type = t;
     }
     
     public float get_current_postion() {
@@ -30,8 +32,9 @@ public class MyMotor {
         float x = -(motor.getCurrentPosition()*ratio_denum)/ratio_enum;
         return x;
     }
-    public void goto_pos_degree(float degree) {
-        float math = (degree/ratio_denum)*ratio_enum;
+    public void goto_pos_degree(float math) {
+                                    //^degree
+        //float math = (degree/ratio_denum)*ratio_enum;
         
         if (motor.getCurrentPosition() >= math){
             while (motor.getCurrentPosition() >= math) {
@@ -57,9 +60,9 @@ public class MyMotor {
         }
         
         if (running) {
-            if (motor.getCurrentPosition() >= tgt_pos) {
+            if (motor.getCurrentPosition() >= (tgt_pos)) {
                 motor.setPower(-1);
-            } else if (motor.getCurrentPosition() <= tgt_pos) {
+            } else if (motor.getCurrentPosition() <= (tgt_pos)) {
                 motor.setPower(1);
             }
         }
