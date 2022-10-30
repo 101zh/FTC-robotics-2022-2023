@@ -90,12 +90,19 @@ public class POCtest2 extends LinearOpMode {
         case ARM_UP_STEP_4: //pickup
           raw_claw.setPosition(.25);
           shoulder.set_target_pos(-125+s);
-          elbow.set_target_pos(210+e);
+          elbow.set_target_pos(198+e);
           arm_state = ArmStatus.ARM_STOPPED;
           break;
+          /*
+          s: 7267
+          e: -1351
+          
+          s: 6870
+          e: -1226
+          */
         case ARM_UP_STEP_5: //drop bkwd
-          shoulder.set_target_pos(-230+s);
-          elbow.set_target_pos(105+e);
+          shoulder.set_target_pos(-210+s);
+          elbow.set_target_pos(64+e);
           armStage = "bkwd";
           arm_state = ArmStatus.ARM_STOPPED;
           break;
