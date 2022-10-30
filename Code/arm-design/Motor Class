@@ -53,7 +53,7 @@ public class MyMotor {
     }
     
     public void proceed() {
-        if (motor.getCurrentPosition() <= tgt_pos+20 && motor.getCurrentPosition() >= tgt_pos-20) {
+        if (motor.getCurrentPosition() <= tgt_pos+10 && motor.getCurrentPosition() >= tgt_pos-10) {
             motor.setPower(0);
             motor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
             running = false;
@@ -71,6 +71,7 @@ public class MyMotor {
     
     public void set_target_pos(float degree) {
         tgt_pos = (degree/ratio_denum)*ratio_enum;
+        //tgt_pos/ratio_enum*ratio_denum
         running = true;
     }
     
