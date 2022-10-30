@@ -22,8 +22,8 @@ public class POCtest2 extends LinearOpMode {
   
   String armStage;
   boolean first;
-  int s = 26;
-  int e = -20;
+  int s = 26; //offset
+  int e = -20; //offset
   
   private enum ArmStatus {
     ARM_STOPPED,
@@ -32,6 +32,7 @@ public class POCtest2 extends LinearOpMode {
     ARM_UP_STEP_3,
     ARM_UP_STEP_4,
     ARM_UP_STEP_5,
+    ARM_UP_STEP_6,
     ARM_DOWN_STEP_1,
     ARM_DOWN_STEP_2,
     DROP_CONE_STEP_1,
@@ -88,10 +89,10 @@ public class POCtest2 extends LinearOpMode {
         case ARM_UP_STEP_3:
           break;
         case ARM_UP_STEP_4: //pickup
-          raw_claw.setPosition(.25);
-          shoulder.set_target_pos(-125+s);
-          elbow.set_target_pos(198+e);
-          arm_state = ArmStatus.ARM_STOPPED;
+          if (armStage == "bkwd") {
+            elbow.set_target_pos(95+e);
+          }
+          arm_state = ArmStatus.ARM_UP_STEP_6;
           break;
           /*
           s: 7267
@@ -101,9 +102,16 @@ public class POCtest2 extends LinearOpMode {
           e: -1226
           */
         case ARM_UP_STEP_5: //drop bkwd
-          shoulder.set_target_pos(-210+s);
-          elbow.set_target_pos(64+e);
+          shoulder.set_target_pos(-215+s);
+          elbow.set_target_pos(55+e);
           armStage = "bkwd";
+          arm_state = ArmStatus.ARM_STOPPED;
+          break;
+        case ARM_UP_STEP_6:
+          raw_claw.setPosition(.25);
+          shoulder.set_target_pos(-120+s);
+          elbow.set_target_pos(180+e);
+          armStage = "";
           arm_state = ArmStatus.ARM_STOPPED;
           break;
         case DROP_CONE_STEP_1:
@@ -258,7 +266,7 @@ public class POCtest2 extends LinearOpMode {
   private void MecanumWheelDrive() {
         
         Speed = -gamepad1.left_stick_y * 0.5;
-        Turn = gamepad1.right_stick_x * 0.5;
+        Turn = gamepad1.right_stick_x * 0.45;
         Strafe = -gamepad1.left_stick_x * 0.5;
         FrontLeft2 = (Speed - Turn) + Strafe;
         FrontRight2 = (Speed + Turn) - (-Strafe);
