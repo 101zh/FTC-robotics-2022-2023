@@ -61,6 +61,25 @@ private DcMotor raw_shoulder;
       arm_state = ArmStatus.MOVE_F_1;
     }
   }
+  private void MoveForward(double pwr, double BackDuration) {
+    ElapsedTime f;
+
+    f = new ElapsedTime();
+    while (f.milliseconds() < BackDuration) {
+      FrontLeft.setPower(-pwr);
+      FrontRight.setPower(pwr);
+      BackLeft.setPower(-pwr);
+      BackRight.setPower(pwr);
+    }
+    FrontLeft.setPower(0);
+    FrontRight.setPower(0);
+    BackLeft.setPower(0);
+    BackRight.setPower(0);
+    FrontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    FrontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    BackLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+    BackRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+  }
   private void drop_cone() {
     if (!shoulder.is_running() && !elbow.is_running()) {
       arm_state = ArmStatus.DROP_CONE_STEP_1;
@@ -94,7 +113,25 @@ private DcMotor raw_shoulder;
           arm_state = ArmStatus.ARM_UP_STEP_3;
           break;
         case ARM_UP_STEP_3:
-          break;
+            ElapsedTime f;
+
+            f = new ElapsedTime();
+            while (f.milliseconds() < 1) {
+              FrontLeft.setPower(-0.5);
+              FrontRight.setPower(0.5);
+              BackLeft.setPower(-0.5);
+              BackRight.setPower(0.5);
+            }
+            FrontLeft.setPower(0);
+            FrontRight.setPower(0);
+            BackLeft.setPower(0);
+            BackRight.setPower(0);
+            FrontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            FrontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            BackLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            BackRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            arm_state = ArmStatus.ARM_STOPPED;
+            break;
         case ARM_UP_STEP_4: //pickup
           raw_claw.setPosition(.25);
           shoulder.set_target_pos(-130+s);
