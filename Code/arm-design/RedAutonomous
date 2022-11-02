@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.util.ElapsedTime;
 
 @Autonomous(name = "RedCenterAuto", group = "")
 public class RedCenterAuto extends LinearOpMode {
-private DcMotor raw_shoulder;
+  private DcMotor raw_shoulder;
   private DcMotor raw_elbow;
   private DcMotor BackRight;
   private DcMotor BackLeft;
@@ -27,13 +27,14 @@ private DcMotor raw_shoulder;
   int s = 26;
   int e = -20;
   
-  private enum ArmStatus {
+  /*private enum ArmStatus {
     ARM_STOPPED,
     ARM_UP_STEP_1,
     ARM_UP_STEP_2,
     ARM_UP_STEP_3,
     ARM_UP_STEP_4,
     ARM_UP_STEP_5,
+    ARM_UP_STEP_6,
     ARM_DOWN_STEP_1,
     ARM_DOWN_STEP_2,
     DROP_CONE_STEP_1,
@@ -42,10 +43,10 @@ private DcMotor raw_shoulder;
   };
   private ArmStatus arm_state = ArmStatus.ARM_STOPPED;
   
-  private float set_servo_pos(float degree) {
+  */private float set_servo_pos(float degree) {
         float x = (degree/300);
         return x;
-  }
+  }/*
   private void arm_up() {
     if (!shoulder.is_running() && !elbow.is_running()) {
       arm_state = ArmStatus.ARM_UP_STEP_2;
@@ -60,25 +61,6 @@ private DcMotor raw_shoulder;
     if (!shoulder.is_running() && !elbow.is_running()) {
       arm_state = ArmStatus.MOVE_F_1;
     }
-  }
-  private void MoveForward(double pwr, double BackDuration) {
-    ElapsedTime f;
-
-    f = new ElapsedTime();
-    while (f.milliseconds() < BackDuration) {
-      FrontLeft.setPower(-pwr);
-      FrontRight.setPower(pwr);
-      BackLeft.setPower(-pwr);
-      BackRight.setPower(pwr);
-    }
-    FrontLeft.setPower(0);
-    FrontRight.setPower(0);
-    BackLeft.setPower(0);
-    BackRight.setPower(0);
-    FrontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    FrontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    BackLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-    BackRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
   }
   private void drop_cone() {
     if (!shoulder.is_running() && !elbow.is_running()) {
@@ -110,28 +92,10 @@ private DcMotor raw_shoulder;
           shoulder.set_target_pos(-250+s);
           elbow.set_target_pos(185+e);
           armStage = "frwd";
-          arm_state = ArmStatus.ARM_UP_STEP_3;
+          arm_state = ArmStatus.ARM_UP_STEP_6;
           break;
         case ARM_UP_STEP_3:
-            ElapsedTime f;
-
-            f = new ElapsedTime();
-            while (f.milliseconds() < 1) {
-              FrontLeft.setPower(-0.5);
-              FrontRight.setPower(0.5);
-              BackLeft.setPower(-0.5);
-              BackRight.setPower(0.5);
-            }
-            FrontLeft.setPower(0);
-            FrontRight.setPower(0);
-            BackLeft.setPower(0);
-            BackRight.setPower(0);
-            FrontLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-            FrontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-            BackLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-            BackRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-            arm_state = ArmStatus.ARM_STOPPED;
-            break;
+          break;
         case ARM_UP_STEP_4: //pickup
           raw_claw.setPosition(.25);
           shoulder.set_target_pos(-130+s);
@@ -144,6 +108,24 @@ private DcMotor raw_shoulder;
           armStage = "bkwd";
           arm_state = ArmStatus.ARM_STOPPED;
           break;
+        case ARM_UP_STEP_6:
+            double BackPower = 0.5;
+            double BackDuration = 0.5;
+            ElapsedTime f;
+          
+            f = new ElapsedTime();
+            while (f.milliseconds() < BackDuration) {
+            FrontLeft.setPower(-BackPower);
+            FrontRight.setPower(BackPower);
+            BackLeft.setPower(-BackPower);
+            BackRight.setPower(BackPower);
+            }
+            FrontLeft.setPower(0);
+            FrontRight.setPower(0);
+            BackLeft.setPower(0);
+            BackRight.setPower(0);
+            arm_state = ArmStatus.ARM_STOPPED;
+            break;
         case DROP_CONE_STEP_1:
           if (armStage == "frwd") {
             elbow.set_target_pos(210+e);
@@ -161,7 +143,7 @@ private DcMotor raw_shoulder;
           break;
       }        
     }
-  }
+  }*/
   // looking from right side, ccw is positive
   /**
    * This function is executed when this Op Mode is selected from the Driver Station.
@@ -173,6 +155,8 @@ private DcMotor raw_shoulder;
     double FrontRight2;
     double BackLeft2;
     double BackRight2;
+    
+    
     
   @Override
   public void runOpMode() {
@@ -207,12 +191,13 @@ private DcMotor raw_shoulder;
     raw_shoulder.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     
     raw_claw.setPosition(0);
+    double BackPower = 0.5;
+    double BackDuration = 0.5;
     
     waitForStart();
     if (opModeIsActive()) {
       // Put run blocks here.
       //raw_wrist.setPosition(.1);
-      while (opModeIsActive()) {
         
         float pos = set_servo_pos(elbow.get_current_degree()+shoulder.get_current_degree()+85);
         raw_wrist.setPosition(pos);
@@ -221,15 +206,44 @@ private DcMotor raw_shoulder;
         telemetry.addData("testshoulder-", shoulder.get_target_pos());
         telemetry.addData("testelbow+", elbow.get_current_postion());
         telemetry.addData("testelbow-", elbow.get_target_pos());
-        telemetry.addData("arm pos", arm_state);
+        //telemetry.addData("arm pos", arm_state);
         telemetry.update();
         
-        shoulder.proceed();
-        elbow.proceed();
-        handle_arm_state();
+        //shoulder.proceed();
+        //elbow.proceed();
+        //handle_arm_state();
         
-        arm_up_top();
-      }
+        shoulder.goto_pos_degree(-130+s);
+        elbow.goto_pos_degree(180+e);
+        shoulder.goto_pos_degree(-230+s);
+        
+        raw_wrist.setPosition(pos);
+        
+        ElapsedTime f;
+        f = new ElapsedTime();
+        
+        while (f.milliseconds() < 2000) {
+            FrontLeft.setPower(-BackPower);
+            FrontRight.setPower(BackPower);
+            BackLeft.setPower(-BackPower);
+            BackRight.setPower(BackPower);
+        }
+        FrontLeft.setPower(0);
+        FrontRight.setPower(0);
+        BackLeft.setPower(0);
+        BackRight.setPower(0);
+        
+        while (f.milliseconds() < 250) {
+            FrontLeft.setPower(-BackPower);
+            FrontRight.setPower(BackPower);
+            BackLeft.setPower(-BackPower);
+            BackRight.setPower(BackPower);
+        }
+        FrontLeft.setPower(0);
+        FrontRight.setPower(0);
+        BackLeft.setPower(0);
+        BackRight.setPower(0);
+        
     }
   }
 }
