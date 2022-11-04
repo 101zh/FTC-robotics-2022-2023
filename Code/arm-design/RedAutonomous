@@ -213,37 +213,41 @@ public class RedCenterAuto extends LinearOpMode {
         //elbow.proceed();
         //handle_arm_state();
         
-        shoulder.goto_pos_degree(-130+s);
-        elbow.goto_pos_degree(180+e);
-        shoulder.goto_pos_degree(-230+s);
+        shoulder.goto_pos_degree(-30+s);
+        elbow.goto_pos_degree(-15+e);
         
         raw_wrist.setPosition(pos);
         
+        raw_claw.setPosition(.25);
+        
         ElapsedTime f;
+        
+        
+        
+        f = new ElapsedTime();//left
+        while (f.milliseconds() < 4000) {
+            FrontLeft.setPower(-BackPower);
+            FrontRight.setPower(BackPower);
+            BackLeft.setPower(BackPower);
+            BackRight.setPower(-BackPower);
+        }
+        FrontLeft.setPower(0);
+        FrontRight.setPower(0);
+        BackLeft.setPower(0);
+        BackRight.setPower(0);
         f = new ElapsedTime();
-        
-        while (f.milliseconds() < 2000) {
-            FrontLeft.setPower(-BackPower);
-            FrontRight.setPower(BackPower);
-            BackLeft.setPower(-BackPower);
-            BackRight.setPower(BackPower);
+        while (f.milliseconds() < 1000) {
+            FrontLeft.setPower(BackPower);
+            FrontRight.setPower(-BackPower);
+            BackLeft.setPower(BackPower);
+            BackRight.setPower(-BackPower);
         }
         FrontLeft.setPower(0);
         FrontRight.setPower(0);
         BackLeft.setPower(0);
         BackRight.setPower(0);
-        
-        while (f.milliseconds() < 250) {
-            FrontLeft.setPower(-BackPower);
-            FrontRight.setPower(BackPower);
-            BackLeft.setPower(-BackPower);
-            BackRight.setPower(BackPower);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
-        
+        shoulder.goto_pos_degree(0);
+        elbow.goto_pos_degree(0);
     }
   }
 }
