@@ -32,9 +32,9 @@ public class MyMotor {
         float x = -(motor.getCurrentPosition()*ratio_denum)/ratio_enum;
         return x;
     }
-    public void goto_pos_degree(float math) {
+    public void goto_pos_degree(float degree) {
                                     //^degree
-        //float math = (degree/ratio_denum)*ratio_enum;
+        float math = (degree/ratio_denum)*ratio_enum;
         
         if (motor.getCurrentPosition() >= math){
             while (motor.getCurrentPosition() >= math) {
@@ -53,7 +53,7 @@ public class MyMotor {
     }
     
     public void proceed() {
-        if (motor.getCurrentPosition() <= tgt_pos+10 && motor.getCurrentPosition() >= tgt_pos-10) {
+        if (motor.getCurrentPosition() <= tgt_pos+20 && motor.getCurrentPosition() >= tgt_pos-20) {
             motor.setPower(0);
             motor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
             running = false;
