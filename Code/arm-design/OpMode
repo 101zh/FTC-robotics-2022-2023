@@ -23,7 +23,7 @@ public class POCtest2 extends LinearOpMode {
   String armStage;
   boolean first;
   int s = 0; //offset 26
-  int e = 8; //offset -20
+  int e = -7; //offset -8
   
   private enum ArmStatus {
     ARM_STOPPED,
@@ -81,8 +81,8 @@ public class POCtest2 extends LinearOpMode {
           arm_state = ArmStatus.ARM_UP_STEP_2;
           break;
         case ARM_UP_STEP_2: //drop fwrd
-          shoulder.set_target_pos(-240+s);
-          elbow.set_target_pos(175+e);
+          shoulder.set_target_pos(-252+s);
+          elbow.set_target_pos(165+e);
           armStage = "frwd";
           arm_state = ArmStatus.ARM_UP_STEP_3;
           break;
@@ -100,10 +100,10 @@ public class POCtest2 extends LinearOpMode {
           
           s: 6870
           e: -1226
-          */
+          */ 
         case ARM_UP_STEP_5: //drop bkwd
-          shoulder.set_target_pos(-220+s);
-          elbow.set_target_pos(65+e);
+          shoulder.set_target_pos(-213+s);
+          elbow.set_target_pos(52+e);
           armStage = "bkwd";
           arm_state = ArmStatus.ARM_STOPPED;
           break;
@@ -120,7 +120,8 @@ public class POCtest2 extends LinearOpMode {
             shoulder.set_target_pos(-260+s);
           }
           if (armStage == "bkwd") {
-            elbow.set_target_pos(65+e);
+            elbow.set_target_pos(60+e);
+            shoulder.set_target_pos(-208+s);
           }
           arm_state = ArmStatus.DROP_CONE_STEP_2;
           break;
@@ -184,7 +185,7 @@ public class POCtest2 extends LinearOpMode {
       //raw_wrist.setPosition(.1);
       while (opModeIsActive()) {
         
-        float pos = set_servo_pos(elbow.get_current_degree()+shoulder.get_current_degree()+75);
+        float pos = set_servo_pos(elbow.get_current_degree()+shoulder.get_current_degree()+65);
         raw_wrist.setPosition(pos);
         
         telemetry.addData("testshoulder+", shoulder.get_current_postion());
