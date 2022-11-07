@@ -81,8 +81,8 @@ public class POCtest2 extends LinearOpMode {
           arm_state = ArmStatus.ARM_UP_STEP_2;
           break;
         case ARM_UP_STEP_2: //drop fwrd
-          shoulder.set_target_pos(-252+s);
-          elbow.set_target_pos(165+e);
+          shoulder.set_target_pos(-249+s);
+          elbow.set_target_pos(177+e);
           armStage = "frwd";
           arm_state = ArmStatus.ARM_UP_STEP_3;
           break;
@@ -103,13 +103,13 @@ public class POCtest2 extends LinearOpMode {
           */ 
         case ARM_UP_STEP_5: //drop bkwd
           shoulder.set_target_pos(-213+s);
-          elbow.set_target_pos(52+e);
+          elbow.set_target_pos(48+e);
           armStage = "bkwd";
           arm_state = ArmStatus.ARM_STOPPED;
           break;
         case ARM_UP_STEP_6:
           raw_claw.setPosition(.25);
-          shoulder.set_target_pos(-90+s);
+          shoulder.set_target_pos(-85+s);
           elbow.set_target_pos(100+e);
           armStage = "";
           arm_state = ArmStatus.ARM_STOPPED;
@@ -201,8 +201,8 @@ public class POCtest2 extends LinearOpMode {
         
         if (!shoulder.is_running() && !elbow.is_running()) {
           raw_shoulder.setPower(-gamepad1.left_trigger + gamepad1.right_trigger);
-          if (gamepad1.left_bumper) {
-            while (gamepad1.left_bumper) {
+          if (gamepad1.right_bumper) {
+            while (gamepad1.right_bumper) {
               raw_elbow.setPower(1);
               shoulder.proceed();
               elbow.proceed();
@@ -213,8 +213,8 @@ public class POCtest2 extends LinearOpMode {
             raw_elbow.setPower(0);
             raw_elbow.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
           }
-          if (gamepad1.right_bumper) {
-            while (gamepad1.right_bumper) {
+          if (gamepad1.left_bumper) {
+            while (gamepad1.left_bumper) {
               raw_elbow.setPower(-1);
               shoulder.proceed();
               elbow.proceed();
