@@ -1,19 +1,36 @@
 Agenda:
 
-    TODO
+    TODO:
+        Logan works on POC
+        Designers get ready to present ideas
 
     Updates:
         Sponsorships
         POCs
+            Figure out how to code it - X-drive POC
     
     What did we learn from competition:
         Things to keep doing:
-
+            We played well
+            Good communication
+            We were on schedule
+            We had a good plan
         Things to stop doing:
-
+            ...
         Things to start doing:
+            Make sure that the robot abides by rules after changes
+            Start the second robot
 
+            
+    Strategies/More specific changes:
+        Figure out signal sleeve and camera
+        Staying in place and scoring seems to be more effective
+        Brian's viper slide robot
+        Change beacon design
+        Put a beacon on a cone and hold them at the same
 
-
-
+    Next Meeting:
+        We'll present ideas for 2nd robot and we'll choose one
+        Start working on 2nd robot
+        Talk about what needs to be improved for 1st robot, since it won't be done by next comp
 
