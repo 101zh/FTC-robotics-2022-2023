@@ -1,0 +1,29 @@
+Agenda:
+
+    TODO:
+        Logan works on POC
+        Designers get ready to present ideas
+        Max replaces gear on robot
+
+    Improvements:
+        Moved the expansion hub to one of the beams of the robot
+        Added the arm guide for dropping cones
+
+    Present Ideas:
+        Unable to; Designers still need to figure out how things work
+
+    Priorities:
+        Autonomous - Nicholas
+            Camera and signal sleeve
+        Verify driver presets - Max
+        ...
+        Working on 2nd robot's mechanism of scoring - Brian
+
+    Work:
+        Fixing a motor
+        Figuring out a linear slide works
+        Working on an x-drive POC
+
+
+
+
