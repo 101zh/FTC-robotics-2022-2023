@@ -11,12 +11,12 @@ Notes:
 
         Sponsorships:
             Jonathan's flier:
-                needs second page
+                needs a second page
                 colors are nice
                 6.5/10
             Nicholas's flier:
                 the brown color scheme isn't great  
-                change the amount of pages to 2-3
+                change the # of pages to 2-3
                 8/10
 
     Robotic Designs:
@@ -24,13 +24,13 @@ Notes:
 
         Brian’s 2nd design:
             Might not happen
-            Viper-slide gets robot to 40inches
+            Viper-slide gets the robot to 40inches
             Intake:
                 The claw can move up and down the viper slide (unstable)
                 Or a conveyer belt
 
     Team Building:
-        Put off till later
+        Put it off till later
 
     They struggled to build the field and deconstructed the old robot
-        not only because they are weak, they're also "less bright"
+        not only because they are weak; they're also "less bright"

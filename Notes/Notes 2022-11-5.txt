@@ -6,5 +6,5 @@ Notes
     Nicholas worked on autonomous
     Max practiced driving
     presets were tweaked
-    Drive team knows how to start robot and how to setup
+    The drive team knows how to start the robot and how to setup
 

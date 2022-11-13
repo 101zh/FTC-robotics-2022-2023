@@ -3,7 +3,7 @@ Notes:
     TODO:
         Jean is researching T-shirt stuff
         Nicholas is researching which companies to sponsor us
-        Natalie and Jonathan will each create a set of fliers and discuss next meeting
+        Natalie and Jonathan will each create a set of fliers and discuss the next meeting
         Nicholas will contact some other robotics teams for outreach
         Expo Maekwerers - Nicholas
         Logan will finish up his design of an x-drive
@@ -15,11 +15,11 @@ Notes:
             maybe we could get boba
 
     Logan's Drive Train Design:
-        octogon
+        Octogon shape
         long sides and short sides
         C channels connecting to the short sides which may contain a motor
-        (sadly there is no adapter for motor axel and wheel axel)
-        might use 3 gears (maybe crown) to connect the wheel to the motor
+        (sadly there is no adapter for the motor axel and wheel axel)
+        might use 3 gears (maybe a crown) to connect the wheel to the motor
             a lot of friction
 
     Fundraising/Sponsorships:

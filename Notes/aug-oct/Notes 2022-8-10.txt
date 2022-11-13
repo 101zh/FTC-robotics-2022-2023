@@ -32,13 +32,13 @@ Agenda/Notes:
                 Bios
             Game Strategies?
 
-    Github?
-        Hunter is forcing coders to use Github
+    GitHub?
+        Hunter is forcing coders to use GitHub
 
     Recurring meetings(When are we having meetings)?
         Everyone's Open Times
             Sunday 8:30AM-10:30AM STC
-            Saturday 12:30PM-2:30PM STC
+            Saturday 12:30 PM-2:30 PM STC
             Wednesdays early release meetings STC
 
     Team Building Event:

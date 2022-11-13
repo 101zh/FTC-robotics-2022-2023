@@ -1,31 +1,31 @@
 Agenda:
 
     TODO:
-        Edit your Bio and name into flier on canva
+        Edit your Bio and name into the flier on Canva
         Arm design will be finished building by: 10/16/22 - Max
         Brian's Linear slide design will be done by: 10/16/22
-        DEADLINE FOR SPONSORHIP FLIERS: 10/16/22
+        DEADLINE FOR SPONSORSHIP FLIERS: 10/16/22
 
     TODO Updates:
         Send a bio and a picture into the thread Hunter made in #super-important
             no one has done that | (┬┬﹏┬┬)
-            we are actually going to be editing the canva directly
+            we are actually going to be editing the Canva directly
         Nicholas is researching which companies to sponsor us
             List of companies at top of #fundraising and sponsorships
         Arm design will be finished building by: 10/16/22 - Max
             75% done
         Brian's Linear slide design will be done by: 10/16/22
             70% done
-        DEADLINE FOR SPONSORHIP FLIERS: 10/16/22
+        DEADLINE FOR SPONSORSHIP FLIERS: 10/16/22
 
     Claw Design:
-        Claw that picks up from inside of cone doesn't work; requires 3D printer
+        Claw that picks up from the inside of the cone doesn't work; requires a 3D printer
         We're using last year's design with 1 servo
         Parallel claws?:
             Gravity based design
-                - Weights have to be heavier than cone
+                - Weights have to be heavier than the cone
                 - Weights have to be positioned correctly
-            Have discussion later IRL
+            Have a discussion later IRL
 
     Sponsorship fliers:
         1000$ might be too much money

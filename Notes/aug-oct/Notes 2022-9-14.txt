@@ -21,15 +21,15 @@ Online meeting Notes:
             Linear slide
             so it can reach further
             claw has 1 stationary finger and 1 finger that moves
-            wheels act as weight
+            wheels act as a weight
 
         Max's Design:
             Drive train
             linear slides on all four corners
             something that connects in the middle
-            arm can move 180 and its hand swings freely(like Nicholas's design)
-            it can pick up cone
-            maybe camera and the robot can self adjust
+            Arm can move 180 and its hand swings freely(like Nicholas's design)
+            it can pick up the cone
+            maybe a camera and the robot can self adjust
             Feedback:
 
         Discussion:

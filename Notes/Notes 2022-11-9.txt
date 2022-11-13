@@ -9,7 +9,7 @@ Agenda:
         POCs
             Figure out how to code it - X-drive POC
     
-    What did we learn from competition:
+    What did we learn from the competition:
         Things to keep doing:
             We played well
             Good communication
@@ -23,7 +23,7 @@ Agenda:
 
             
     Strategies/More specific changes:
-        Figure out signal sleeve and camera
+        Figure out the signal sleeve and camera
         Staying in place and scoring seems to be more effective
         Brian's viper slide robot
         Change beacon design
@@ -32,5 +32,5 @@ Agenda:
     Next Meeting:
         We'll present ideas for 2nd robot and we'll choose one
         Start working on 2nd robot
-        Talk about what needs to be improved for 1st robot, since it won't be done by next comp
+        Talk about what needs to be improved for 1st robot, since it won't be done by next the competition
 

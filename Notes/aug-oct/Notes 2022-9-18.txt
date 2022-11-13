@@ -9,10 +9,10 @@ Agenda/Notes:
         Engineering Notebook - Hunter
         Brian and Nicholas will be listing the parts they used for their robot design
             Coach will order the pieces Brian and Nicholas list out
-        Wednesday Meeting 8:30PM
+        Wednesday Meeting 8:30 PM
 
     Updates:
-        Natalie Still needs sponsorship flier
+        Natalie Still needs the sponsorship flier
         Max made a robot design
 
     Nicholas's Design(again):
@@ -22,15 +22,15 @@ Agenda/Notes:
             linear slides
         Design 1:
             The arm can move 360
-            free hanging part which allows the cone to always be facing upright
+            A free-hanging part, which allows the cone to always be facing upright
             2 joints 
 
     Brian's Design:
         Rotating arm
         Linear slide extends the arm
         servos act as a claw
-        Claw can rotate to keep cone upright
-        Sliders can be improved and stablized more
+        Claw can rotate to keep the cone upright
+        Sliders can be improved and stabilized more
 
     Decide on which designs:
         Nicholas's Design is more practical
