@@ -1,11 +1,24 @@
-Agenda:
+Agenda/Notes:
 
     TODO:
         Logan works on POC
         Designers get ready to present ideas
         Max replaces gear on robot
 
+    Updates:
+        Logan's x-drive POC
+            To connect the controller to the robot there needs to driver hub
+            has coded, but hasn't tested
+
+        Designers ideas:
+            Nicholas's design:
+                A viper slide that is horizontal and can rotate, so it can be in between vertical and horizontal
+                viper slide is connected to a device that will rotate the viper slide
+            Brian's design:
+                doesn't know yet
+
     Change time back to 8:30AM?
+        Compromise: Change time to 9:00AM
 
     Priorities:
         Autonomous - Nicholas
@@ -13,9 +26,3 @@ Agenda:
         Verify driver presets - Max
         ...
         Working on 2nd robot's mechanism of scoring - Brian
-
-    Present Ideas:
-
-
-
-
