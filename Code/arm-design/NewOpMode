@@ -16,6 +16,7 @@ public class NewPoc extends LinearOpMode {
   private DcMotor FrontRight;
   private Servo LeftClaw;
   private Servo RightClaw;
+  private Servo wrist;
 
   private MyMotor shoulder;
   private MyMotor elbow;
@@ -83,6 +84,7 @@ public class NewPoc extends LinearOpMode {
         case ARM_UP_STEP_2: //drop fwrd
           shoulder.set_target_pos(-249+s);
           elbow.set_target_pos(177+e);
+          wrist.setPosition(.9);
           armStage = "frwd";
           arm_state = ArmStatus.ARM_UP_STEP_3;
           break;
@@ -90,7 +92,8 @@ public class NewPoc extends LinearOpMode {
           break;
         case ARM_UP_STEP_4: //pickup
           if (armStage == "bkwd") {
-            elbow.set_target_pos(95+e);
+            elbow.set_target_pos(40+e);
+            arm_state = ArmStatus.DROP_CONE_STEP_2;
           }
           arm_state = ArmStatus.ARM_UP_STEP_6;
           break;
@@ -102,15 +105,17 @@ public class NewPoc extends LinearOpMode {
           e: -1226
           */ 
         case ARM_UP_STEP_5: //drop bkwd
-          shoulder.set_target_pos(-213+s);
-          elbow.set_target_pos(48+e);
+          shoulder.set_target_pos(-210+s);
+          elbow.set_target_pos(45+e);
+          wrist.setPosition(.25);
           armStage = "bkwd";
           arm_state = ArmStatus.ARM_STOPPED;
           break;
         case ARM_UP_STEP_6:
           //raw_claw.setPosition(.25);
-          shoulder.set_target_pos(-85+s);
-          elbow.set_target_pos(100+e);
+          shoulder.set_target_pos(-35+s);
+          elbow.set_target_pos(40+e);
+          wrist.setPosition(.9);
           armStage = "";
           arm_state = ArmStatus.ARM_STOPPED;
           break;
@@ -123,12 +128,11 @@ public class NewPoc extends LinearOpMode {
             elbow.set_target_pos(60+e);
             shoulder.set_target_pos(-208+s);
           }
-          arm_state = ArmStatus.DROP_CONE_STEP_2;
+          arm_state = ArmStatus.ARM_STOPPED;
           break;
         case DROP_CONE_STEP_2:
          // raw_claw.setPosition(.25);
-          sleep(1000);
-          arm_state = ArmStatus.ARM_STOPPED;
+          wrist.setPosition(.9);
           break;
       }        
     }
@@ -156,6 +160,7 @@ public class NewPoc extends LinearOpMode {
     
     LeftClaw = hardwareMap.get(Servo.class, "LeftClaw");
     RightClaw = hardwareMap.get(Servo.class, "RightClaw");
+    wrist = hardwareMap.get(Servo.class, "wrist");
     
     first = true;
     int clawMode = 0;
@@ -178,6 +183,7 @@ public class NewPoc extends LinearOpMode {
     
     LeftClaw.setPosition(.25);
     RightClaw.setPosition(.25);
+    wrist.setPosition(.25);
     
     waitForStart();
     if (opModeIsActive()) {
@@ -258,6 +264,9 @@ public class NewPoc extends LinearOpMode {
             clawLoop = 1;
           }
         } 
+        if (gamepad1.start) {
+          wrist.setPosition(.9);
+        }
         MecanumWheelDrive();
       }
     }
@@ -272,9 +281,9 @@ public class NewPoc extends LinearOpMode {
         BackLeft2 = (Speed - Turn) - Strafe;
         BackRight2 = Speed + Turn + (-Strafe);
         
-        FrontLeft.setPower(FrontLeft2);
+        FrontLeft.setPower(-FrontLeft2);
         FrontRight.setPower(FrontRight2);
         BackLeft.setPower(-BackLeft2);
-        BackRight.setPower(-BackRight2);
+        BackRight.setPower(BackRight2);
     }
 }
