@@ -1,0 +1,20 @@
+Notes:
+
+    TODO:
+        Engineering Portfolio
+
+
+    Priorities:
+        Autonomous - Nicholas
+            Camera and signal sleeve
+        Verify driver presets - Max
+        ...
+        Working on 2nd robot's mechanism of scoring - Brian
+
+    Meeting Notes:
+        Worked on recognizing colors for Autonomous
+        worked on Autonomous
+        worked on linear slide
+
+
+        
