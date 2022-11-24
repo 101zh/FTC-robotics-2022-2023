@@ -2,13 +2,23 @@ Agenda:
 
     TODO:
         Engineering Portfolio
+        Logan keep working on X-drive POC
+        Logan print out custom signal sleeve
 
     Updates:
+        Sponsorhip:
+            No replies to emails
+        X-drive POC:
+            Got all the materials needed
+            Just need to start coding
 
 
     What happened at the Technova meet?
-
+        We talked about robot designs
+        They gave us feedback
+        Showed some cool coding stuff
+            New servo class & math
 
     What are we working on now?
-
-
+        Signal sleeve code & custom signal sleeve
+        Thinking about 2nd robot
