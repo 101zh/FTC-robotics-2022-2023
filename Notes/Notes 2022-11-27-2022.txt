@@ -1,0 +1,9 @@
+Agenda:
+
+    TODO:
+
+    Address the 2-points of contact rule for v-shaped guide
+
+    Work on driving
+    
+    Work on autonomous
