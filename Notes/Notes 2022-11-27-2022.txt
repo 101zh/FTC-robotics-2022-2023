@@ -1,9 +1,21 @@
-Agenda:
+Agenda/Notes:
 
     TODO:
+        File down sharp edges
+        File guide into a u-shape claw
+        Logan print out custom signal sleeve
+        Add down preset
+        Test robot- driving & autonomous
+        Inspect robot
+
 
     Address the 2-points of contact rule for v-shaped guide
+        Make the guide into a u-shaped guide
 
-    Work on driving
-    
-    Work on autonomous
+    Work:
+        Work on driving
+            presets
+        Work on Portfolio
+            Bios
+        Work on autonomous
+            Testing custom signal sleeves
