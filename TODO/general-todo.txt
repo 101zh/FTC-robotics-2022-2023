@@ -1,10 +1,13 @@
 
-Change v-shaped guide to a u-shaped guide
-File down sharp edges
-Logan print out custom signal sleeve
-Engineering Portfolio
-Logan keep working on X-drive POC
+Short-term:
+    File down sharp edges
+    Logan print out custom signal sleeve
+    Add down preset
+    Test robot- driving & autonomous
+    Inspect robot
 
-
-
+Long-term:
+    Engineering Portfolio
+    Logan keep working on X-drive POC
+    Working on linear slide - Brian
 
