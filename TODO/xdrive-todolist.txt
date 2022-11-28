@@ -1,5 +1,5 @@
 DONE - Program 4 directions
+DONE - turning
 Have motor speeds match each other
-Turning
 Scaling for motors, multiply by the scale so that they all spin the same rpm
 Position everything into the middle of robot
