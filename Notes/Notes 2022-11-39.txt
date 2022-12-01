@@ -1,0 +1,19 @@
+Agenda:
+
+    TODO:
+        File down sharp edges
+        File guide into a u-shape claw
+        Logan print out custom signal sleeve
+        Add down preset
+        Test robot- driving & autonomous
+        Inspect robot
+
+    Discussion of prep for competition:
+        Do we need meeting on Sat?
+            When?
+
+    
+
+
+
+
