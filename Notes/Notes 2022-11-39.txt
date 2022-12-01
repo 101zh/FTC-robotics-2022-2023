@@ -1,19 +1,21 @@
-Agenda:
+Agenda/Notes:
 
     TODO:
-        File down sharp edges
-        File guide into a u-shape claw
-        Logan print out custom signal sleeve
         Add down preset
         Test robot- driving & autonomous
         Inspect robot
 
+    Updates:
+        Logan's x-drive POC:
+            needs encoder wires to make sure all motors move at the same speed
+
     Discussion of prep for competition:
-        Do we need meeting on Sat?
+        Down preset
+        replaced servos on claw b/c they weren't working; need to replace replaced servos(were torque, but we want speed)
+        Do we need a meeting on Sat?
+            Yes, b/c we need to fix how the claw grabs
             When?
-
-    
-
+                TBD
 
 
 
