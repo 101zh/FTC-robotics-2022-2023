@@ -1,0 +1,16 @@
+Agenda:
+
+    Checks:
+        Claw grabbing coding
+            Debounce toggle claw issue 
+        Presets
+            Needs to be signed off by Max
+        Max needs to fix the wires
+        Autonomous
+        Everything charged
+        Pack goggles
+        Pack everything
+        Double-check everything
+
+    Notes:
+        No longer trust Max with wire management
