@@ -1,0 +1,42 @@
+Agenda:
+
+    What have we learned from comp
+        Start:
+            Scouting
+            Discussing strategy more in-depth
+        Stop:
+        Continue:
+            Be more productive at meetings
+    
+    Engineering Portfolio:
+        Hunter - gathering info for Portfolio
+        Natalie & Jean - make the portfolio look good
+        Talk about team
+        Outreaches with other teams
+        Why you built the robot the way you did
+
+    Improvements to consider:
+        Faster arm?
+            Definetley needs to be Faster for cycling
+            change to speed motor motors
+        2 drivers?
+            Max & Nicholas or Brian are drivers
+            Pushing max towards 2 drivers
+            Nicholas will code by Sunday
+        Program autonomous
+            1st - Vision (with custom signal sleeve)
+            2nd - Scoring on High goal from side stack
+        Driver needs to practice
+    
+
+
+
+
+
+
+
+
+
+
+
+
