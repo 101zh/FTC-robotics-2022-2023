@@ -1,15 +1,14 @@
 package org.firstinspires.ftc.teamcode2.common.powerplay;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 
-@Autonomous(name = "PowerPlayRedAuto")
-public class PowerPlayRedAuto extends LinearOpMode {
+@TeleOp(name = "PowerPlayOpMode")
+public class PowerPlayOpMode extends LinearOpMode {
 
   private static final double SHOULDER_POWER = 1;
   private static final double ELBOW_POWER = 0.6;
@@ -74,191 +73,12 @@ public class PowerPlayRedAuto extends LinearOpMode {
     initHardwareConfig();
 
     while (opModeIsActive()) {
-      clawPosition = CLAW_CLOSE;
-      setArmPosition(0, 0, 0, 0, WRIST_DOWN, 0);
+      handleInput();
       moveArm();
-      Forward(2600);
-      TurnLeft(775);
-      armState = ArmState.TALL_POLE1;
-      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
-      moveArm();
-      sleep(3000);
-      clawPosition = CLAW_OPEN;
-      sleep(500);
-      setArmPosition(90, 0, -15, 0, WRIST_DOWN, 0);
-      moveArm();
-      sleep(500);
-      
-      Left(470);
-      setArmPosition(45, 0, -82, 0, WRIST_UP, 0);
-      moveArm();
-      sleep(500);
-      Forward(480);
-      sleep(500);
-      clawPosition = CLAW_CLOSE;
-      moveArm();
-      sleep(500);
-      setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
-      moveArm();
-      Backward(375);
-      sleep(500);
-      Right(525);
-      sleep(1000);
-      
-      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
-      moveArm();
-      sleep(2000);
-      clawPosition = CLAW_OPEN;
-      setArmPosition(90, 0, -15, 0, WRIST_DOWN, 0); //200 500
-      moveArm();
-      sleep(500);
-      
-      Left(450);
-      setArmPosition(40, 0, -82, 0, WRIST_UP, 0);
-      moveArm();
-      sleep(1000);
-      Forward(500);
-      sleep(500);
-      clawPosition = CLAW_CLOSE;
-      moveArm();
-      sleep(500);
-      setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
-      moveArm();
-      Backward(375);
-      sleep(500);
-      Right(470);
-      sleep(1000);
-      
-      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
-      moveArm();
-      sleep(2000);
-      break;
+      moveRobot();
+      showTelemetry();
     }
   }
-
-    private void Right(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(-.5);
-            FrontRight.setPower(-.5);
-            BackLeft.setPower(.5);
-            BackRight.setPower(.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
-    }
-    private void Left(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(.5);
-            FrontRight.setPower(.5);
-            BackLeft.setPower(-.5);
-            BackRight.setPower(-.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
-    }
-    private void Forward(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(-.5);
-            FrontRight.setPower(.5);
-            BackLeft.setPower(-.5);
-            BackRight.setPower(.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
-    }
-    private void Backward(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(.5);
-            FrontRight.setPower(-.5);
-            BackLeft.setPower(.5);
-            BackRight.setPower(-.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
-    }
-    private void TurnRight(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(-.5);
-            FrontRight.setPower(-.5);
-            BackLeft.setPower(-.5);
-            BackRight.setPower(-.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
-    }
-    private void TurnLeft(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(.5);
-            FrontRight.setPower(.5);
-            BackLeft.setPower(.5);
-            BackRight.setPower(.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
-    }
-    private void shoulder_turn_back(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            shoulder.setPower(-0.5);
-        }
-        shoulder.setPower(0);
-    }
-  public void shoulder_goto_pos_degree(float math) {
-        if (shoulder.getCurrentPosition() >= math){
-            while (shoulder.getCurrentPosition() >= math) {
-                shoulder.setPower(-1);
-            }
-            shoulder.setPower(0);
-            shoulder.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        } else if (shoulder.getCurrentPosition() <= math) {
-            while (shoulder.getCurrentPosition() <= math) {
-                shoulder.setPower(1);
-            }
-            shoulder.setPower(0);
-            shoulder.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        }
-    }
-    
-  public void elbow_goto_pos_degree(float math) {
-        if (elbow.getCurrentPosition() >= math){
-            while (elbow.getCurrentPosition() >= math) {
-                elbow.setPower(-1);
-            }
-            elbow.setPower(0);
-            elbow.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        } else if (elbow.getCurrentPosition() <= math) {
-            while (elbow.getCurrentPosition() <= math) {
-                elbow.setPower(1);
-            }
-            elbow.setPower(0);
-            elbow.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        }
-    }
 
   private void initHardwareMap() {
     
