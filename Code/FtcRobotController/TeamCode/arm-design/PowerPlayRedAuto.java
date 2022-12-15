@@ -74,15 +74,65 @@ public class PowerPlayRedAuto extends LinearOpMode {
     initHardwareConfig();
 
     while (opModeIsActive()) {
-      handleInput();
+      clawPosition = CLAW_CLOSE;
+      setArmPosition(0, 0, 0, 0, WRIST_DOWN, 0);
       moveArm();
-      moveRobot();
-      showTelemetry();
-      Forward(2300);
-      //Right(3000);
-      TurnLeft(800);
-      shoulder_goto_pos_degree(180);
-      elbow_goto_pos_degree(-75);
+      Forward(2600);
+      TurnLeft(775);
+      armState = ArmState.TALL_POLE1;
+      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
+      moveArm();
+      sleep(3000);
+      clawPosition = CLAW_OPEN;
+      sleep(500);
+      setArmPosition(90, 0, -15, 0, WRIST_DOWN, 0);
+      moveArm();
+      sleep(500);
+      
+      Left(470);
+      setArmPosition(45, 0, -82, 0, WRIST_UP, 0);
+      moveArm();
+      sleep(500);
+      Forward(480);
+      sleep(500);
+      clawPosition = CLAW_CLOSE;
+      moveArm();
+      sleep(500);
+      setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
+      moveArm();
+      Backward(375);
+      sleep(500);
+      Right(525);
+      sleep(1000);
+      
+      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
+      moveArm();
+      sleep(2000);
+      clawPosition = CLAW_OPEN;
+      setArmPosition(90, 0, -15, 0, WRIST_DOWN, 0); //200 500
+      moveArm();
+      sleep(500);
+      
+      Left(450);
+      setArmPosition(40, 0, -82, 0, WRIST_UP, 0);
+      moveArm();
+      sleep(1000);
+      Forward(500);
+      sleep(500);
+      clawPosition = CLAW_CLOSE;
+      moveArm();
+      sleep(500);
+      setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
+      moveArm();
+      Backward(375);
+      sleep(500);
+      Right(470);
+      sleep(1000);
+      
+      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
+      moveArm();
+      sleep(2000);
+      break;
     }
   }
 
@@ -100,6 +150,20 @@ public class PowerPlayRedAuto extends LinearOpMode {
         BackLeft.setPower(0);
         BackRight.setPower(0);
     }
+    private void Left(int time) {
+        ElapsedTime f;
+        f = new ElapsedTime();
+        while (f.milliseconds() < time) {
+            FrontLeft.setPower(.5);
+            FrontRight.setPower(.5);
+            BackLeft.setPower(-.5);
+            BackRight.setPower(-.5);
+        }
+        FrontLeft.setPower(0);
+        FrontRight.setPower(0);
+        BackLeft.setPower(0);
+        BackRight.setPower(0);
+    }
     private void Forward(int time) {
         ElapsedTime f;
         f = new ElapsedTime();
@@ -108,6 +172,20 @@ public class PowerPlayRedAuto extends LinearOpMode {
             FrontRight.setPower(.5);
             BackLeft.setPower(-.5);
             BackRight.setPower(.5);
+        }
+        FrontLeft.setPower(0);
+        FrontRight.setPower(0);
+        BackLeft.setPower(0);
+        BackRight.setPower(0);
+    }
+    private void Backward(int time) {
+        ElapsedTime f;
+        f = new ElapsedTime();
+        while (f.milliseconds() < time) {
+            FrontLeft.setPower(.5);
+            FrontRight.setPower(-.5);
+            BackLeft.setPower(.5);
+            BackRight.setPower(-.5);
         }
         FrontLeft.setPower(0);
         FrontRight.setPower(0);
@@ -141,6 +219,14 @@ public class PowerPlayRedAuto extends LinearOpMode {
         FrontRight.setPower(0);
         BackLeft.setPower(0);
         BackRight.setPower(0);
+    }
+    private void shoulder_turn_back(int time) {
+        ElapsedTime f;
+        f = new ElapsedTime();
+        while (f.milliseconds() < time) {
+            shoulder.setPower(-0.5);
+        }
+        shoulder.setPower(0);
     }
   public void shoulder_goto_pos_degree(float math) {
         if (shoulder.getCurrentPosition() >= math){
