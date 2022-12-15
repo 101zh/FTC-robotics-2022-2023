@@ -1,0 +1,22 @@
+Notes:
+    (in person)
+    Update on all changes since last meeting:
+        Major Overhauls on Coding:
+            Sensitivity on the drive train has been decreased
+            4 presets:
+                Pickup preset: for picking up cones/ground junction
+                Low Junc preset: for scoring on low junction
+                Mid Junc preset: for scoring on medium junction
+                High Junc preset: for scoring on high junction
+            2 controllers now control the robot: 1 for drive train; 1 for arm
+
+    What happened:
+        Worked on autonomous
+
+
+
+
+
+
+
+
