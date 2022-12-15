@@ -1,0 +1,30 @@
+Agenda:
+
+    ### Online:
+    
+    Talk about new stuff on robot:
+        Major Overhauls on Coding:
+            Sensitivity on the drive train has been decreased
+            4 presets:
+                Pickup preset: for picking up cones/ground junction
+                Low Junc preset: for scoring on low junction
+                Mid Junc preset: for scoring on medium junction
+                High Junc preset: for scoring on high junction
+            2 controllers now control the robot: 1 for drive train; 1 for arm
+        Re-mounted control hubs & powerswitch: easier access to wires
+        Things that made the robot quicker:
+            Geared up elbow
+            Changed shoulder motor to 84rpm(stronger)
+            Arm was made shorter
+        Angle of the guide was changed
+
+    Tell Natalie and Jean to work on Engineering Portfolio
+
+    Prepare for presentation
+
+    ######################
+    In-person:
+        Working on autonomous
+        Practice for 2 drivers
+
+
