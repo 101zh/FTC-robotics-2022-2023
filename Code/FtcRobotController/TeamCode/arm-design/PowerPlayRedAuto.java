@@ -1,17 +1,73 @@
-package org.firstinspires.ftc.teamcode2.common.powerplay;
+/* Copyright (c) 2019 FIRST. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted (subject to the limitations in the disclaimer below) provided that
+ * the following conditions are met:
+ *
+ * Redistributions of source code must retain the above copyright notice, this list
+ * of conditions and the following disclaimer.
+ *
+ * Redistributions in binary form must reproduce the above copyright notice, this
+ * list of conditions and the following disclaimer in the documentation and/or
+ * other materials provided with the distribution.
+ *
+ * Neither the name of FIRST nor the names of its contributors may be used to endorse or
+ * promote products derived from this software without specific prior written permission.
+ *
+ * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY THIS
+ * LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import java.util.List;
+import org.firstinspires.ftc.robotcore.external.ClassFactory;
+import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
+import org.firstinspires.ftc.robotcore.external.tfod.TFObjectDetector;
+import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
 
+/**
+ * This 2020-2021 OpMode illustrates the basics of using the TensorFlow Object Detection API to
+ * determine the position of the Freight Frenzy game elements.
+ *
+ * Use Android Studio to Copy this Class, and Paste it into your team's code folder with a new name.
+ * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list.
+ *
+ * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
+ * is explained below.
+ */
+@Autonomous(name = "PowerPlayRedCAMWMRMAM", group = "Concept")
 
-@Autonomous(name = "PowerPlayRedAuto")
-public class PowerPlayRedAuto extends LinearOpMode {
-
-  private static final double SHOULDER_POWER = 1;
+public class PowerPlayRedAuto_Copy extends LinearOpMode {
+  /* Note: This sample uses the all-objects Tensor Flow model (FreightFrenzy_BCDM.tflite), which contains
+   * the following 4 detectable objects
+   *  0: Ball,
+   *  1: Cube,
+   *  2: Duck,
+   *  3: Marker (duck location tape marker)
+   *
+   *  Two additional model assets are available which only contain a subset of the objects:
+   *  FreightFrenzy_BC.tflite  0: Ball,  1: Cube
+   *  FreightFrenzy_DM.tflite  0: Duck,  1: Marker
+   */
+   private static final double SHOULDER_POWER = 1;
   private static final double ELBOW_POWER = 0.6;
   private static final int SLOW_DOWN_THRESHOLD = 300;
   private static final double SLOW_DOWN_POWER = 0.3;
@@ -64,93 +120,202 @@ public class PowerPlayRedAuto extends LinearOpMode {
   private boolean lastSteadyState;
   private double lastStateChangeTime;
   private double lastRequestTime;
+  
+    private static final String TFOD_MODEL_ASSET = "PowerPlay.tflite";
+    private static final String[] LABELS = {
+            "1 Bolt",
+            "2 Bulb",
+            "3 Panel"
+    };
 
-  @Override
-  public void runOpMode() {
-    initHardwareMap();
+    /*
+     * IMPORTANT: You need to obtain your own license key to use Vuforia. The string below with which
+     * 'parameters.vuforiaLicenseKey' is initialized is for illustration only, and will not function.
+     * A Vuforia 'Development' license key, can be obtained free of charge from the Vuforia developer
+     * web site at https://developer.vuforia.com/license-manager.
+     *
+     * Vuforia license keys are always 380 characters long, and look as if they contain mostly
+     * random data. As an example, here is a example of a fragment of a valid key:
+     *      ... yIgIzTqZ4mWjk9wd3cZO9T1axEqzuhxoGlfOOI2dRzKS4T0hQ8kT ...
+     * Once you've obtained a license key, copy the string from the Vuforia web site
+     * and paste it in to your code on the next line, between the double quotes.
+     */
+    private static final String VUFORIA_KEY =
+            "ATOG5mj/////AAABmfmXvSzj2Ux+pmz1IJNzKHF0VpNa0OnJxDLE2SeGlIGgWZr7F8iunY9sSFkGQd5Fi0XnRA5EaTv8iWrUgNp/dPZ15ZIk4O40kX5EtRMFrb3+mmAY/EkAzzRRnKHclpP7rH0S9qeQCLdEwb+WIbjscfqoHVaUlXkAV+/rPlfCC3PwOa7+iSwtKjij8W2ImpPwoYdXEr2yaizyS9PKsZ+yVQXulZCtNkTJUwBaujmODqSvpPKMa/W9T/oeiyiwj7nHqdfqIsDnA1gf1D4OmXri3BbJE89bJXUBWLgnu8sixs7ZsNWcXwookmME672KIx8JTIiLSJHE4ZepzbSLR7kU+DS1shBDtgDjQwFqJ62F72Nw";
 
-    waitForStart();
+    /**
+     * {@link #vuforia} is the variable we will use to store our instance of the Vuforia
+     * localization engine.
+     */
+    private VuforiaLocalizer vuforia;
 
-    initHardwareConfig();
+    /**
+     * {@link #tfod} is the variable we will use to store our instance of the TensorFlow Object
+     * Detection engine.
+     */
+    private TFObjectDetector tfod;
 
-    while (opModeIsActive()) {
-      clawPosition = CLAW_CLOSE;
-      setArmPosition(0, 0, 0, 0, WRIST_DOWN, 0);
-      moveArm();
-      Right(2500);
-      Forward(150);//150
-      TurnLeft(50);
-      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
-      moveArm();
-      Right(830);
-      Left(10);
-      //orward(2300);
-      //TurnLeft(725);
-      sleep(2000);
-      clawPosition = CLAW_OPEN;
-      setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0);
-      moveArm();
-      sleep(500);
-      
-      Left(550);
-      Right(10);
-      setArmPosition(43, 0, -82, 0, WRIST_UP, 0);
-      moveArm();
-      sleep(500);
-      Forward(675);
-      sleep(100);
-      clawPosition = CLAW_CLOSE;
-      moveArm();
-      sleep(300);
-      setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
-      moveArm();
-      sleep(100);
-      Backward(460);//325
-      sleep(100);
-      Right(650);
-      
-      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
-      moveArm();
-      sleep(1500);
-      clawPosition = CLAW_OPEN;
-      setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0); //200 500
-      moveArm();
-      sleep(750);
-      
-      Left(620);
-      Right(11);
-      setArmPosition(40, 0, -82, 0, WRIST_UP, 0);
-      moveArm();
-      sleep(500);
-      Forward(725);
-      clawPosition = CLAW_CLOSE;
-      moveArm();
-      sleep(300);
-      setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
-      moveArm();
-      sleep(100);
-      Backward(525); //32
-      sleep(100);
-      Right(600);
-      sleep(1000);
-      
-      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
-      moveArm();
-      sleep(1000);
-      clawPosition = CLAW_OPEN;
-      setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0); //200 500
-      moveArm();
-      sleep(500);
-      Left(2000);
-      
-      setArmPosition(0, 0, 0, 0, WRIST_DOWN, 0);
-      moveArm();
-      Left(1000);
-      Forward(3000);
-      break;
-    }
-  }
-    private void resetEncoders() {
+    @Override
+    public void runOpMode() {
+        // The TFObjectDetector uses the camera frames from the VuforiaLocalizer, so we create that
+        // first.
+        initVuforia();
+        initTfod();
+
+        /**
+         * Activate TensorFlow Object Detection before we wait for the start command.
+         * Do it here so that the Camera Stream window will have the TensorFlow annotations visible.
+         **/
+        if (tfod != null) {
+            tfod.activate();
+
+            // The TensorFlow software will scale the input images from the camera to a lower resolution.
+            // This can result in lower detection accuracy at longer distances (> 55cm or 22").
+            // If your target is at distance greater than 50 cm (20") you can adjust the magnification value
+            // to artificially zoom in to the center of image.  For best results, the "aspectRatio" argument
+            // should be set to the value of the images used to create the TensorFlow Object Detection model
+            // (typically 16/9).
+            tfod.setZoom(1.3, 13.0/7.0);
+        }
+
+        /** Wait for the game to begin */
+        telemetry.addData(">", "Press Play to start op mode");
+        telemetry.update();
+        boolean wait = true;
+        int box = 0;
+        while (wait == true) {
+          if (opModeIsActive()) {
+            wait = false;
+          }
+          if (tfod != null) {
+                    // getUpdatedRecognitions() will return null if no new information is available since
+                    // the last time that call was made.
+                    List<Recognition> updatedRecognitions = tfod.getUpdatedRecognitions();
+                    if (updatedRecognitions != null) {
+                      telemetry.addData("# Object Detected", updatedRecognitions.size());
+                      // step through the list of recognitions and display boundary info.
+                      int i = 0;
+                      for (Recognition recognition : updatedRecognitions) {
+                        if (recognition.getLabel() == "marker") {
+                          
+                        } else {
+                        
+                        telemetry.addData(String.format("label "), recognition.getLabel());
+                        telemetry.addData(String.format("  left,top (%d)", i), "%.03f , %.03f",
+                                recognition.getLeft(), recognition.getTop());
+                        telemetry.addData(String.format("  right,bottom (%d)", i), "%.03f , %.03f",
+                                recognition.getRight(), recognition.getBottom());
+                        if (recognition.getLabel().contains("2")) {
+                          box = 2;
+                        } else if (recognition.getLabel().contains("1")) {
+                          box = 1;
+                        } else if (recognition.getLabel().contains("3")) {
+                          box = 3;
+                        }
+                        telemetry.addData("mogus", box);
+                        i++;
+                        }
+                      }
+                      telemetry.update();
+                    }
+                }
+                
+        }
+        
+        waitForStart();
+        if (opModeIsActive()) {
+          initHardwareMap();
+          
+          initHardwareConfig();
+            
+                clawPosition = CLAW_CLOSE;
+                setArmPosition(0, 0, 0, 0, WRIST_DOWN, 0);
+                moveArm();
+                Right(2600);
+                Forward(100);//150
+                TurnLeft(50);
+                setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
+                moveArm();
+                Right(830);
+                Left(10);
+                //orward(2300);
+                //TurnLeft(725);
+                sleep(2000);
+                clawPosition = CLAW_OPEN;
+                setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0);
+                moveArm();
+                sleep(500);
+                
+                Left(665);
+                Right(10);
+                setArmPosition(43, 0, -82, 0, WRIST_UP, 0);
+                moveArm();
+                sleep(500);
+                Forward(675);
+                sleep(200);
+                clawPosition = CLAW_CLOSE;
+                moveArm();
+                sleep(300);
+                setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
+                moveArm();
+                sleep(100);
+                Backward(460);//325
+                sleep(200);
+                Right(700);
+                
+                
+                TurnLeft(75);
+                
+                setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
+                moveArm();
+                sleep(1500);
+                clawPosition = CLAW_OPEN;
+                setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0); //200 500
+                moveArm();
+                sleep(750);
+                
+                Left(750);
+                
+                TurnLeft(20);
+                Right(11);
+                setArmPosition(40, 0, -82, 0, WRIST_UP, 0);
+                moveArm();
+                sleep(500);
+                Forward(725);
+                clawPosition = CLAW_CLOSE;
+                moveArm();
+                sleep(300);
+                setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
+                moveArm();
+                sleep(100);
+                Backward(500); //32
+                sleep(200);
+                Right(800);
+                sleep(1000);
+                
+                setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
+                moveArm();
+                sleep(1000);
+                clawPosition = CLAW_OPEN;
+                setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0); //200 500
+                moveArm();
+                sleep(600);
+                Left(2000);
+                
+                setArmPosition(0, 0, 0, 0, WRIST_DOWN, 0);
+                moveArm();
+                sleep(1000);
+                if (box == 1) {
+                  Forward(1000);
+                } else if (box == 2) {
+                } else if (box == 3) {
+                  Backward(850);
+                }
+                
+            }
+        }
+    
+private void resetEncoders() {
       BackLeft.setMode(DcMotor.RunMode.RESET_ENCODERS);
       BackRight.setMode(DcMotor.RunMode.RESET_ENCODERS);
       FrontLeft.setMode(DcMotor.RunMode.RESET_ENCODERS);
@@ -531,5 +696,35 @@ public class PowerPlayRedAuto extends LinearOpMode {
     telemetry.addData("Status", "Running");
     telemetry.update();
   }
+    /**
+     * Initialize the Vuforia localization engine.
+     */
+    private void initVuforia() {
+        /*
+         * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
+         */
+        VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
+        parameters.vuforiaLicenseKey = VUFORIA_KEY;
+        parameters.cameraName = hardwareMap.get(WebcamName.class, "Webcam");
+
+        //  Instantiate the Vuforia engine
+        vuforia = ClassFactory.getInstance().createVuforia(parameters);
+
+        // Loading trackables is not necessary for the TensorFlow Object Detection engine.
+    }
+
+    /**
+     * Initialize the TensorFlow Object Detection engine.
+     */
+    private void initTfod() {
+        int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier(
+            "tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
+        TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
+       tfodParameters.minResultConfidence = 0.5f;
+       tfodParameters.isModelTensorFlow2 = true;
+       tfodParameters.inputSize = 320;
+       tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
+       tfod.loadModelFromAsset(TFOD_MODEL_ASSET, LABELS);
+    }
 }
