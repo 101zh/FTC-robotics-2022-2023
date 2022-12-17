@@ -77,189 +77,207 @@ public class PowerPlayRedAuto extends LinearOpMode {
       clawPosition = CLAW_CLOSE;
       setArmPosition(0, 0, 0, 0, WRIST_DOWN, 0);
       moveArm();
-      Forward(2600);
-      TurnLeft(775);
-      armState = ArmState.TALL_POLE1;
+      Right(2500);
+      Forward(150);//150
+      TurnLeft(50);
       setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
       moveArm();
-      sleep(3000);
-      clawPosition = CLAW_OPEN;
-      sleep(500);
-      setArmPosition(90, 0, -15, 0, WRIST_DOWN, 0);
-      moveArm();
-      sleep(500);
-      
-      Left(470);
-      setArmPosition(45, 0, -82, 0, WRIST_UP, 0);
-      moveArm();
-      sleep(500);
-      Forward(480);
-      sleep(500);
-      clawPosition = CLAW_CLOSE;
-      moveArm();
-      sleep(500);
-      setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
-      moveArm();
-      Backward(375);
-      sleep(500);
-      Right(525);
-      sleep(1000);
-      
-      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
-      moveArm();
+      Right(830);
+      Left(10);
+      //orward(2300);
+      //TurnLeft(725);
       sleep(2000);
       clawPosition = CLAW_OPEN;
-      setArmPosition(90, 0, -15, 0, WRIST_DOWN, 0); //200 500
+      setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0);
       moveArm();
       sleep(500);
       
-      Left(450);
+      Left(550);
+      Right(10);
+      setArmPosition(43, 0, -82, 0, WRIST_UP, 0);
+      moveArm();
+      sleep(500);
+      Forward(675);
+      sleep(100);
+      clawPosition = CLAW_CLOSE;
+      moveArm();
+      sleep(300);
+      setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
+      moveArm();
+      sleep(100);
+      Backward(460);//325
+      sleep(100);
+      Right(650);
+      
+      setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
+      moveArm();
+      sleep(1500);
+      clawPosition = CLAW_OPEN;
+      setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0); //200 500
+      moveArm();
+      sleep(750);
+      
+      Left(620);
+      Right(11);
       setArmPosition(40, 0, -82, 0, WRIST_UP, 0);
       moveArm();
-      sleep(1000);
-      Forward(500);
       sleep(500);
+      Forward(725);
       clawPosition = CLAW_CLOSE;
       moveArm();
-      sleep(500);
+      sleep(300);
       setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
       moveArm();
-      Backward(375);
-      sleep(500);
-      Right(470);
+      sleep(100);
+      Backward(525); //32
+      sleep(100);
+      Right(600);
       sleep(1000);
       
       setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
       moveArm();
-      sleep(2000);
+      sleep(1000);
+      clawPosition = CLAW_OPEN;
+      setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0); //200 500
+      moveArm();
+      sleep(500);
+      Left(2000);
+      
+      setArmPosition(0, 0, 0, 0, WRIST_DOWN, 0);
+      moveArm();
+      Left(1000);
+      Forward(3000);
       break;
     }
   }
-
-    private void Right(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(-.5);
-            FrontRight.setPower(-.5);
-            BackLeft.setPower(.5);
-            BackRight.setPower(.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
+    private void resetEncoders() {
+      BackLeft.setMode(DcMotor.RunMode.RESET_ENCODERS);
+      BackRight.setMode(DcMotor.RunMode.RESET_ENCODERS);
+      FrontLeft.setMode(DcMotor.RunMode.RESET_ENCODERS);
+      FrontRight.setMode(DcMotor.RunMode.RESET_ENCODERS);
     }
-    private void Left(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(.5);
-            FrontRight.setPower(.5);
-            BackLeft.setPower(-.5);
-            BackRight.setPower(-.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
+    private void runToPos() {
+      BackLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+      BackRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+      FrontLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+      FrontRight.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
-    private void Forward(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(-.5);
-            FrontRight.setPower(.5);
-            BackLeft.setPower(-.5);
-            BackRight.setPower(.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
+    private void testMove() {
+      resetEncoders();
+      BackLeft.setPower(0.2);
+      BackLeft.setTargetPosition(-1000);
+      while (BackLeft.isBusy());
+      BackLeft.setPower(0);
+      sleep(5000);
     }
-    private void Backward(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(.5);
-            FrontRight.setPower(-.5);
-            BackLeft.setPower(.5);
-            BackRight.setPower(-.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
+    double power2 = .8;
+    private void Forward(int pos) {
+      resetEncoders();
+      FrontLeft.setPower(-power2);
+      FrontLeft.setTargetPosition(-pos);
+      FrontRight.setPower(power2);
+      FrontRight.setTargetPosition(pos);
+      BackLeft.setPower(-power2);
+      BackLeft.setTargetPosition(-pos);
+      BackRight.setPower(power2);
+      BackRight.setTargetPosition(pos);
+      runToPos();
+      while (FrontLeft.isBusy());
+      while (FrontRight.isBusy());
+      while (BackLeft.isBusy());
+      while (BackRight.isBusy());
+      FrontLeft.setPower(0);
+      FrontRight.setPower(0);
+      BackLeft.setPower(0);
+      BackRight.setPower(0);
+    } 
+    private void Right(int pos) {
+      resetEncoders();
+      FrontLeft.setPower(-power2);
+      FrontLeft.setTargetPosition(-pos);
+      FrontRight.setPower(-power2);
+      FrontRight.setTargetPosition(-pos);
+      BackLeft.setPower(power2);
+      BackLeft.setTargetPosition(pos);
+      BackRight.setPower(power2);
+      BackRight.setTargetPosition(pos);
+      runToPos();
+      while (FrontLeft.isBusy());
+      FrontLeft.setPower(0);
+      FrontRight.setPower(0);
+      BackLeft.setPower(0);
+      BackRight.setPower(0);
     }
-    private void TurnRight(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(-.5);
-            FrontRight.setPower(-.5);
-            BackLeft.setPower(-.5);
-            BackRight.setPower(-.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
+    private void Left(int pos) {
+      resetEncoders();
+      FrontLeft.setPower(power2);
+      FrontLeft.setTargetPosition(pos);
+      FrontRight.setPower(power2);
+      FrontRight.setTargetPosition(pos);
+      BackLeft.setPower(-power2);
+      BackLeft.setTargetPosition(-pos);
+      BackRight.setPower(-power2);
+      BackRight.setTargetPosition(-pos);
+      runToPos();
+      while (FrontLeft.isBusy());
+      FrontLeft.setPower(0);
+      FrontRight.setPower(0);
+      BackLeft.setPower(0);
+      BackRight.setPower(0);
     }
-    private void TurnLeft(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            FrontLeft.setPower(.5);
-            FrontRight.setPower(.5);
-            BackLeft.setPower(.5);
-            BackRight.setPower(.5);
-        }
-        FrontLeft.setPower(0);
-        FrontRight.setPower(0);
-        BackLeft.setPower(0);
-        BackRight.setPower(0);
+    private void Backward(int pos) {
+      resetEncoders();
+      FrontLeft.setPower(power2);
+      FrontLeft.setTargetPosition(pos);
+      FrontRight.setPower(-power2);
+      FrontRight.setTargetPosition(-pos);
+      BackLeft.setPower(power2);
+      BackLeft.setTargetPosition(pos);
+      BackRight.setPower(-power2);
+      BackRight.setTargetPosition(-pos);
+      runToPos();
+      while (FrontLeft.isBusy());
+      FrontLeft.setPower(0);
+      FrontRight.setPower(0);
+      BackLeft.setPower(0);
+      BackRight.setPower(0);
     }
-    private void shoulder_turn_back(int time) {
-        ElapsedTime f;
-        f = new ElapsedTime();
-        while (f.milliseconds() < time) {
-            shoulder.setPower(-0.5);
-        }
-        shoulder.setPower(0);
+    private void TurnRight(int pos) {
+      resetEncoders();
+      FrontLeft.setPower(-power2);
+      FrontLeft.setTargetPosition(-pos);
+      FrontRight.setPower(-power2);
+      FrontRight.setTargetPosition(-pos);
+      BackLeft.setPower(-power2);
+      BackLeft.setTargetPosition(-pos);
+      BackRight.setPower(-power2);
+      BackRight.setTargetPosition(-pos);
+      runToPos();
+      while (FrontLeft.isBusy());
+      FrontLeft.setPower(0);
+      FrontRight.setPower(0);
+      BackLeft.setPower(0);
+      BackRight.setPower(0);
+      
     }
-  public void shoulder_goto_pos_degree(float math) {
-        if (shoulder.getCurrentPosition() >= math){
-            while (shoulder.getCurrentPosition() >= math) {
-                shoulder.setPower(-1);
-            }
-            shoulder.setPower(0);
-            shoulder.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        } else if (shoulder.getCurrentPosition() <= math) {
-            while (shoulder.getCurrentPosition() <= math) {
-                shoulder.setPower(1);
-            }
-            shoulder.setPower(0);
-            shoulder.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        }
+    private void TurnLeft(int pos) {
+      resetEncoders();
+      FrontLeft.setPower(power2);
+      FrontLeft.setTargetPosition(pos);
+      FrontRight.setPower(power2);
+      FrontRight.setTargetPosition(pos);
+      BackLeft.setPower(power2);
+      BackLeft.setTargetPosition(pos);
+      BackRight.setPower(power2);
+      BackRight.setTargetPosition(pos);
+      runToPos();
+      while (FrontLeft.isBusy());
+      FrontLeft.setPower(0);
+      FrontRight.setPower(0);
+      BackLeft.setPower(0);
+      BackRight.setPower(0);
     }
     
-  public void elbow_goto_pos_degree(float math) {
-        if (elbow.getCurrentPosition() >= math){
-            while (elbow.getCurrentPosition() >= math) {
-                elbow.setPower(-1);
-            }
-            elbow.setPower(0);
-            elbow.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        } else if (elbow.getCurrentPosition() <= math) {
-            while (elbow.getCurrentPosition() <= math) {
-                elbow.setPower(1);
-            }
-            elbow.setPower(0);
-            elbow.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        }
-    }
-
   private void initHardwareMap() {
     
     shoulder = hardwareMap.get(DcMotor.class, "shoulder");
@@ -293,7 +311,14 @@ public class PowerPlayRedAuto extends LinearOpMode {
       elbow.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
       elbow.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
-
+    
+    if (BackLeft != null) {
+      BackLeft.setTargetPosition(0);
+      BackLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+      BackLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+      BackLeft.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    }
+    
     if (clawLeft != null) {
       clawLeft.setDirection(Servo.Direction.FORWARD);
       clawLeft.setPosition(0);
