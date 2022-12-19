@@ -160,6 +160,27 @@ public class PowerPlayOpMode extends LinearOpMode {
   
   private void onButtonPressed()
   {
+          shoulder.setPower(-gamepad2.left_trigger + gamepad2.right_trigger);
+          if (gamepad2.right_bumper) {
+            while (gamepad2.right_bumper) {
+              elbow.setPower(1);
+              moveRobot();
+              shoulder.setPower(-gamepad1.left_trigger + gamepad1.right_trigger);
+            }
+            elbow.setPower(0);
+            elbow.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+          }
+          if (gamepad2.left_bumper) {
+            while (gamepad2.left_bumper) {
+              elbow.setPower(-1);
+              moveRobot();
+              shoulder.setPower(-gamepad1.left_trigger + gamepad1.right_trigger);
+            }
+            elbow.setPower(0);
+            elbow.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+          }
+          //raw_elbow.setPower((-gamepad1.left_stick_y - gamepad1.left_stick_x)/2);
+        
     if (gamepad1.y) {
       if (armState != ArmState.PICK1) {
         armState = ArmState.PICK1;
@@ -190,7 +211,7 @@ public class PowerPlayOpMode extends LinearOpMode {
     } else if (gamepad1.b) {
       if (armState != ArmState.TALL_POLE1) {
         armState = ArmState.TALL_POLE1;
-        setArmPosition(180, 0, -75, 200, WRIST_DOWN, 500);
+        setArmPosition(180, 0, -80, 200, WRIST_DOWN, 500);
       } else {
         armState = ArmState.TALL_POLE2;
         setArmPosition(180, 0, -55, 0, WRIST_DOWN, 0 );
@@ -282,7 +303,7 @@ public class PowerPlayOpMode extends LinearOpMode {
   private void moveRobot() {
     double y_factor = 0.5;
     double x_factor = 0.5;
-    double turn_factor = 0.5;
+    double turn_factor = 0.4;
     
     if (FrontLeft != null) {
       double y = -gamepad2.left_stick_y * y_factor;
