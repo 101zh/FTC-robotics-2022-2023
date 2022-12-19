@@ -33,7 +33,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import java.util.List;
@@ -53,7 +52,7 @@ import org.firstinspires.ftc.robotcore.external.tfod.Recognition;
  * IMPORTANT: In order to use this OpMode, you need to obtain your own Vuforia license key as
  * is explained below.
  */
-@Autonomous(name = "PowerPlayRedCAMWMRMAM", group = "Concept")
+@TeleOp(name = "PowerPlayRedCAMWMRMAM", group = "Concept")
 
 public class PowerPlayRedAuto_Copy extends LinearOpMode {
   /* Note: This sample uses the all-objects Tensor Flow model (FreightFrenzy_BCDM.tflite), which contains
@@ -227,61 +226,75 @@ public class PowerPlayRedAuto_Copy extends LinearOpMode {
           initHardwareMap();
           
           initHardwareConfig();
-            
+                
                 clawPosition = CLAW_CLOSE;
                 setArmPosition(0, 0, 0, 0, WRIST_DOWN, 0);
                 moveArm();
-                Right(2600);
+                Right(2575);
                 Forward(100);//150
                 TurnLeft(50);
                 setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
                 moveArm();
-                Right(830);
+                Right(800);
                 Left(10);
                 //orward(2300);
                 //TurnLeft(725);
-                sleep(2000);
+                sleep(1700);
                 clawPosition = CLAW_OPEN;
                 setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0);
                 moveArm();
                 sleep(500);
                 
-                Left(665);
+                Left(675);
                 Right(10);
-                setArmPosition(43, 0, -82, 0, WRIST_UP, 0);
+                setArmPosition(43, 0, -75, 0, WRIST_UP, 0);
                 moveArm();
-                sleep(500);
-                Forward(675);
-                sleep(200);
+                sleep(700);
+                Forward(620);
+                sleep(100);
+                Backward(10);
                 clawPosition = CLAW_CLOSE;
                 moveArm();
                 sleep(300);
                 setArmPosition(90, 0, -82, 0, WRIST_UP, 0); //200 500
                 moveArm();
                 sleep(100);
-                Backward(460);//325
+                Backward(490);//325
                 sleep(200);
-                Right(700);
-                
                 
                 TurnLeft(75);
+                Right(745);
+                TurnLeft(25);
+                
                 
                 setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
                 moveArm();
                 sleep(1500);
                 clawPosition = CLAW_OPEN;
+                setArmPosition(180, 0, 0, 0, WRIST_DOWN, 0); //200 500
+                moveArm();
+                sleep(750);
+                Forward(50);
+                setArmPosition(150, 0, -100, 0, WRIST_DOWN, 0); //200 500
+                moveArm();
+                sleep(500);
+                Backward(50);
                 setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0); //200 500
                 moveArm();
                 sleep(750);
                 
-                Left(750);
+                Left(715);
                 
                 TurnLeft(20);
                 Right(11);
                 setArmPosition(40, 0, -82, 0, WRIST_UP, 0);
                 moveArm();
-                sleep(500);
-                Forward(725);
+                sleep(300);
+                Forward(690);
+                TurnRight(10);
+                Backward(10);
+                sleep(50);
+                Backward(10);
                 clawPosition = CLAW_CLOSE;
                 moveArm();
                 sleep(300);
@@ -290,28 +303,38 @@ public class PowerPlayRedAuto_Copy extends LinearOpMode {
                 sleep(100);
                 Backward(500); //32
                 sleep(200);
+                TurnLeft(75);
                 Right(800);
                 sleep(1000);
                 
+                TurnLeft(75);
                 setArmPosition(180, 0, -75, 0, WRIST_DOWN, 0); //200 500
                 moveArm();
                 sleep(1000);
                 clawPosition = CLAW_OPEN;
+                setArmPosition(180, 0, -50, 0, WRIST_DOWN, 0); //200 500
+                moveArm();
+                sleep(300);
+                setArmPosition(150, 0, -100, 0, WRIST_DOWN, 0); //200 500
+                moveArm();
+                sleep(500);
                 setArmPosition(45, 0, -15, 0, WRIST_DOWN, 0); //200 500
                 moveArm();
-                sleep(600);
-                Left(2000);
+                sleep(550);
                 
-                setArmPosition(0, 0, 0, 0, WRIST_DOWN, 0);
+                
+                Left(766);
+                
+                setArmPosition(0, 0, 0, 0, WRIST_UP, 0);
                 moveArm();
-                sleep(1000);
+                sleep(500);
                 if (box == 1) {
                   Forward(1000);
                 } else if (box == 2) {
                 } else if (box == 3) {
                   Backward(850);
                 }
-                
+                Left(200);
             }
         }
     
@@ -721,7 +744,7 @@ private void resetEncoders() {
         int tfodMonitorViewId = hardwareMap.appContext.getResources().getIdentifier(
             "tfodMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         TFObjectDetector.Parameters tfodParameters = new TFObjectDetector.Parameters(tfodMonitorViewId);
-       tfodParameters.minResultConfidence = 0.5f;
+       tfodParameters.minResultConfidence = 0.7f;
        tfodParameters.isModelTensorFlow2 = true;
        tfodParameters.inputSize = 320;
        tfod = ClassFactory.getInstance().createTFObjectDetector(tfodParameters, vuforia);
